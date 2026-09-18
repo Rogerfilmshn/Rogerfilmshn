@@ -3,12 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="ROGERFILMS — dirección, producción y postproducción audiovisual desde Honduras.">
+  <meta name="description" content="Roger Rivera — dirección, producción y postproducción audiovisual desde Honduras.">
   <meta name="theme-color" content="#0c0d0d">
-  <title>ROGERFILMS | Producción audiovisual</title>
+  <title>Roger Rivera | Producción audiovisual</title>
+  <link rel="icon" type="image/png" href="assets/rogerfilms-isologo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
       --ink: #0c0d0d;
@@ -89,7 +90,7 @@
       display: inline-flex;
       align-items: baseline;
       gap: 6px;
-      font-family: "Space Grotesk", Arial, sans-serif;
+      font-family: "Cormorant Garamond", Georgia, serif;
       font-size: 1.35rem;
       font-weight: 600;
       letter-spacing: .075em;
@@ -144,7 +145,7 @@
     .hero-visual, .hero-wash { position: absolute; inset: -4%; pointer-events: none; }
     .hero-visual {
       z-index: -3;
-      background: url("assets/rogerfilms-hero.png") center 42% / cover no-repeat;
+      background: url("assets/rogerfilms-isologo.png") center 42% / cover no-repeat;
       opacity: .72;
       transform: scale(1.04);
       will-change: opacity, filter, transform;
@@ -191,7 +192,7 @@
     .hero-title {
       max-width: 11ch;
       margin: 0;
-      font-family: "Space Grotesk", Arial, sans-serif;
+      font-family: "Cormorant Garamond", Georgia, serif;
       font-size: clamp(4rem, 9.2vw, 8.2rem);
       font-weight: 500;
       letter-spacing: -.065em;
@@ -253,7 +254,7 @@
       padding: 17px 30px;
       border-right: 1px solid var(--line-dark);
       color: rgba(247, 243, 234, .72);
-      font-family: "Space Grotesk", Arial, sans-serif;
+      font-family: "Cormorant Garamond", Georgia, serif;
       font-size: .8rem;
       font-style: normal;
       font-weight: 600;
@@ -268,7 +269,7 @@
     .section-heading--spread { display: flex; max-width: none; align-items: end; justify-content: space-between; gap: 32px; }
     .section-title {
       margin: 0;
-      font-family: "Space Grotesk", Arial, sans-serif;
+      font-family: "Cormorant Garamond", Georgia, serif;
       font-size: clamp(3rem, 5.5vw, 5.2rem);
       font-weight: 500;
       letter-spacing: -.055em;
@@ -281,7 +282,7 @@
     .service { min-height: 242px; padding: 25px 30px 28px 0; border-bottom: 1px solid var(--line-light); }
     .service + .service { padding-left: 30px; border-left: 1px solid var(--line-light); }
     .service-number { color: #98733e; font-size: .7rem; font-weight: 700; letter-spacing: .14em; }
-    .service h3 { margin: 55px 0 9px; font-family: "Space Grotesk", Arial, sans-serif; font-size: 1.25rem; font-weight: 600; letter-spacing: -.045em; }
+    .service h3 { margin: 55px 0 9px; font-family: "Cormorant Garamond", Georgia, serif; font-size: 1.45rem; font-weight: 600; letter-spacing: -.045em; }
     .service p { max-width: 28ch; margin: 0; color: var(--dark-muted); font-size: .85rem; line-height: 1.7; }
 
     /* Portafolio horizontal */
@@ -370,6 +371,15 @@
       transform: scale(1.015);
       transition: opacity .4s ease, transform .65s cubic-bezier(.2, .7, .2, 1);
     }
+    .project-video {
+      position: absolute;
+      z-index: -2;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      background: #171817;
+    }
     .reel-card[data-preview="ready"] .preview-image { opacity: .98; }
     .reel-card:hover, .reel-card:focus-visible { border-color: var(--amber-light); transform: translateY(-7px); box-shadow: 0 25px 42px rgba(0, 0, 0, .44); }
     .reel-card:hover::before, .reel-card:focus-visible::before, .reel-card:hover .preview-image, .reel-card:focus-visible .preview-image { transform: scale(1.075); }
@@ -380,7 +390,7 @@
     .project-badge { max-width: calc(100% - 48px); padding: 6px 8px; border: 1px solid rgba(247, 243, 234, .28); background: rgba(13, 14, 13, .26); backdrop-filter: blur(9px); color: var(--ivory); font-size: .56rem; font-weight: 700; letter-spacing: .11em; line-height: 1.3; text-transform: uppercase; }
     .project-number { color: var(--amber-light); font-size: .6rem; font-weight: 700; letter-spacing: .13em; }
     .project-bottom { align-self: flex-end; width: 100%; }
-    .project-title { display: block; font-family: "Space Grotesk", Arial, sans-serif; font-size: clamp(1.15rem, 1.65vw, 1.5rem); font-weight: 600; letter-spacing: -.055em; line-height: .96; }
+    .project-title { display: block; font-family: "Cormorant Garamond", Georgia, serif; font-size: clamp(1.35rem, 1.8vw, 1.7rem); font-weight: 600; letter-spacing: -.055em; line-height: .96; }
     .project-subtitle { display: block; max-width: 25ch; margin-top: 8px; color: rgba(247, 243, 234, .75); font-size: .65rem; line-height: 1.45; }
     .play-control { position: absolute; top: 47%; left: 50%; display: grid; width: 46px; height: 46px; place-items: center; border: 1px solid var(--amber-light); border-radius: 50%; background: rgba(13, 14, 13, .45); color: var(--amber-light); backdrop-filter: blur(8px); font-size: .72rem; transform: translate(-50%, -50%); transition: background .22s ease, color .22s ease, transform .22s ease; }
     .reel-card:hover .play-control, .reel-card:focus-visible .play-control, .reel-card.is-active .play-control { background: var(--amber-light); color: var(--ink); transform: translate(-50%, -50%) scale(1.08); }
@@ -390,12 +400,12 @@
     /* Cierre */
     .statement { background: var(--paper-deep); }
     .statement-grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: clamp(30px, 9vw, 130px); align-items: end; }
-    .statement-quote { margin: 0; font-family: "Space Grotesk", Arial, sans-serif; font-size: clamp(2.6rem, 5.2vw, 5.2rem); font-weight: 600; letter-spacing: -.075em; line-height: .88; }
+    .statement-quote { margin: 0; font-family: "Cormorant Garamond", Georgia, serif; font-size: clamp(2.9rem, 5.5vw, 5.5rem); font-weight: 600; letter-spacing: -.075em; line-height: .88; }
     .statement-quote em { color: #9a743d; font-style: normal; font-weight: 600; }
     .statement-copy { margin: 0; color: var(--dark-muted); font-size: .94rem; line-height: 1.8; }
     .contact { background: var(--ink); color: var(--ivory); }
     .contact-inner { display: flex; align-items: end; justify-content: space-between; gap: 34px; }
-    .contact-title { max-width: 11ch; margin: 0; font-family: "Space Grotesk", Arial, sans-serif; font-size: clamp(3.1rem, 6.4vw, 6.7rem); font-weight: 600; letter-spacing: -.075em; line-height: .84; }
+    .contact-title { max-width: 11ch; margin: 0; font-family: "Cormorant Garamond", Georgia, serif; font-size: clamp(3.3rem, 6.7vw, 7rem); font-weight: 600; letter-spacing: -.075em; line-height: .84; }
     .contact-copy { max-width: 37ch; margin: 0 0 22px; color: var(--muted); font-size: .89rem; line-height: 1.75; }
     .contact .button { min-width: 202px; }
     .site-footer { background: #080909; color: rgba(247, 243, 234, .52); }
@@ -438,7 +448,7 @@
   <a class="skip-link" href="#contenido">Ir al contenido</a>
   <header class="site-header">
     <nav class="nav" aria-label="Navegación principal">
-      <a class="brand" href="#inicio" aria-label="ROGERFILMS, inicio"><span class="brand-logo" aria-hidden="true"><img src="assets/rogerfilms-isologo.png" alt="" width="2101" height="2100"></span><span>ROGER<span class="brand-mark">•</span>FILMS</span></a>
+      <a class="brand" href="#inicio" aria-label="Roger Rivera, inicio"><span class="brand-logo" aria-hidden="true"><img src="assets/rogerfilms-isologo.png" alt="" width="2101" height="2100"></span><span>ROGER<span class="brand-mark">•</span>RIVERA</span></a>
       <button class="menu-toggle" type="button" aria-controls="nav-links" aria-expanded="false"><span aria-hidden="true">☰</span><span class="sr-only">Abrir menú</span></button>
       <div class="nav-links" id="nav-links">
         <a href="#servicios">Servicios</a>
@@ -451,8 +461,8 @@
   <main id="contenido">
     <section class="hero" id="inicio" aria-labelledby="hero-title">
       <div class="hero-video hero-visual" aria-hidden="true">
-        <video autoplay muted loop playsinline preload="auto" poster="assets/rogerfilms-hero.png">
-          <source src="assets/bad-bunny-stage-build.mp4" type="video/mp4">
+        <video autoplay muted loop playsinline preload="auto" poster="assets/rogerfilms-isologo.png">
+          <source src="assets/montaje-tarima-bad-bunny.mp4" type="video/mp4">
         </video>
       </div>
       <div class="hero-wash" aria-hidden="true"></div>
@@ -474,8 +484,8 @@
 
     <div class="marquee" aria-label="Especialidades">
       <div class="marquee-track" aria-hidden="true">
-        <span class="marquee-item">Conciertos <b>✦</b></span><span class="marquee-item">Comerciales <b>✦</b></span><span class="marquee-item">Eventos <b>✦</b></span><span class="marquee-item">Automotriz <b>✦</b></span><span class="marquee-item">Drone <b>✦</b></span><span class="marquee-item">Brand films <b>✦</b></span>
-        <span class="marquee-item">Conciertos <b>✦</b></span><span class="marquee-item">Comerciales <b>✦</b></span><span class="marquee-item">Eventos <b>✦</b></span><span class="marquee-item">Automotriz <b>✦</b></span><span class="marquee-item">Drone <b>✦</b></span><span class="marquee-item">Brand films <b>✦</b></span>
+        <span class="marquee-item">Conciertos <b>✦</b></span><span class="marquee-item">Comerciales <b>✦</b></span><span class="marquee-item">Eventos <b>✦</b></span><span class="marquee-item">Automotriz <b>✦</b></span><span class="marquee-item">Dron <b>✦</b></span><span class="marquee-item">Películas de marca <b>✦</b></span>
+        <span class="marquee-item">Conciertos <b>✦</b></span><span class="marquee-item">Comerciales <b>✦</b></span><span class="marquee-item">Eventos <b>✦</b></span><span class="marquee-item">Automotriz <b>✦</b></span><span class="marquee-item">Dron <b>✦</b></span><span class="marquee-item">Películas de marca <b>✦</b></span>
       </div>
     </div>
 
@@ -507,14 +517,21 @@
         <div class="reels-stage">
         <div class="portfolio-row" data-reveal>
           <div class="row-top">
-            <h3 class="row-name">Conciertos y experiencias</h3>
-            <div class="carousel-controls" aria-label="Navegar conciertos y experiencias">
+            <h3 class="row-name">Conciertos &amp; eventos</h3>
+            <div class="carousel-controls" aria-label="Navegar conciertos y eventos">
               <button class="carousel-control" type="button" data-move="-1" data-target="row-live" aria-label="Anterior">←</button>
               <button class="carousel-control" type="button" data-move="1" data-target="row-live" aria-label="Siguiente">→</button>
             </div>
           </div>
-          <div class="reel-track" id="row-live" tabindex="0" aria-label="Portafolio de conciertos. Use las flechas izquierda y derecha para desplazarse.">
-            <a class="reel-card" data-tone="violet" data-tiktok="https://www.tiktok.com/@rogerfilmshn/video/7170256430224706822" href="https://www.tiktok.com/@rogerfilmshn/video/7170256430224706822" target="_blank" rel="noopener" aria-label="Ver proyecto Bad Bunny en TikTok"><img class="preview-image" alt="" aria-hidden="true"><span class="project-meta"><span class="project-badge">Concierto</span><span class="project-number">01</span></span><span class="preview-state">Cargando vista previa</span><span class="project-bottom"><span class="project-title">Bad Bunny</span><span class="project-subtitle">San Pedro Sula · World Hottest Tour</span></span><span class="play-control" aria-hidden="true">▶</span></a>
+          <div class="reel-track" id="row-live" tabindex="0" aria-label="Portafolio de conciertos y eventos. Use las flechas izquierda y derecha para desplazarse.">
+            <article class="reel-card reel-card--video" data-tone="violet" tabindex="0" aria-label="Reproducir el proceso del montaje de la tarima para el concierto de Bad Bunny">
+              <video class="project-video" controls loop preload="metadata" poster="assets/rogerfilms-isologo.png">
+                <source src="assets/montaje-tarima-bad-bunny.mp4" type="video/mp4">
+                Tu navegador no puede reproducir este video.
+              </video>
+              <span class="project-meta"><span class="project-badge">Proceso de montaje</span><span class="project-number">01</span></span>
+              <span class="project-bottom"><span class="project-title">Montaje de tarima</span><span class="project-subtitle">Bad Bunny · Proceso de producción</span></span>
+            </article>
             <a class="reel-card" data-tone="red" data-tiktok="https://www.tiktok.com/@rogerfilmshn/video/7166134308611132678" href="https://www.tiktok.com/@rogerfilmshn/video/7166134308611132678" target="_blank" rel="noopener" aria-label="Ver proyecto Ricardo Arjona en TikTok"><img class="preview-image" alt="" aria-hidden="true"><span class="project-meta"><span class="project-badge">Concierto</span><span class="project-number">02</span></span><span class="preview-state">Cargando vista previa</span><span class="project-bottom"><span class="project-title">Ricardo Arjona</span><span class="project-subtitle">Estadio Morazán · Cobertura</span></span><span class="play-control" aria-hidden="true">▶</span></a>
             <a class="reel-card" data-tone="gold" data-tiktok="https://www.tiktok.com/@rogerfilmshn/video/7509260986260458757" href="https://www.tiktok.com/@rogerfilmshn/video/7509260986260458757" target="_blank" rel="noopener" aria-label="Ver proyecto Jowell y Randy en TikTok"><img class="preview-image" alt="" aria-hidden="true"><span class="project-meta"><span class="project-badge">Concierto</span><span class="project-number">03</span></span><span class="preview-state">Cargando vista previa</span><span class="project-bottom"><span class="project-title">Jowell &amp; Randy</span><span class="project-subtitle">Show en vivo · Honduras</span></span><span class="play-control" aria-hidden="true">▶</span></a>
             <a class="reel-card" data-tone="blue" data-tiktok="https://www.tiktok.com/@rogerfilmshn/video/7369108931081538822" href="https://www.tiktok.com/@rogerfilmshn/video/7369108931081538822" target="_blank" rel="noopener" aria-label="Ver proyecto Tito y Nicky Jam en TikTok"><img class="preview-image" alt="" aria-hidden="true"><span class="project-meta"><span class="project-badge">Concierto</span><span class="project-number">04</span></span><span class="preview-state">Cargando vista previa</span><span class="project-bottom"><span class="project-title">Tito &amp; Nicky Jam</span><span class="project-subtitle">San Pedro Sula · Evento</span></span><span class="play-control" aria-hidden="true">▶</span></a>
@@ -532,8 +549,8 @@
             </div>
           </div>
           <div class="reel-track" id="row-brands" tabindex="0" aria-label="Portafolio de marcas. Use las flechas izquierda y derecha para desplazarse.">
-            <a class="reel-card" data-tone="green" data-tiktok="https://www.tiktok.com/@rogerfilmshn/video/7611635102971448592" href="https://www.tiktok.com/@rogerfilmshn/video/7611635102971448592" target="_blank" rel="noopener" aria-label="Ver proyecto Bounce Padel en TikTok"><img class="preview-image" alt="" aria-hidden="true"><span class="project-meta"><span class="project-badge">Deporte · Drone</span><span class="project-number">07</span></span><span class="preview-state">Cargando vista previa</span><span class="project-bottom"><span class="project-title">Bounce Padel</span><span class="project-subtitle">Onetouch · Drone shots</span></span><span class="play-control" aria-hidden="true">▶</span></a>
-            <a class="reel-card" data-tone="gold" data-tiktok="https://www.tiktok.com/@rogerfilmshn/video/7565979619405352204" href="https://www.tiktok.com/@rogerfilmshn/video/7565979619405352204" target="_blank" rel="noopener" aria-label="Ver proyecto El Salvador en TikTok"><img class="preview-image" alt="" aria-hidden="true"><span class="project-meta"><span class="project-badge">Comercial · Travel</span><span class="project-number">08</span></span><span class="preview-state">Cargando vista previa</span><span class="project-bottom"><span class="project-title">El Salvador</span><span class="project-subtitle">Producción internacional</span></span><span class="play-control" aria-hidden="true">▶</span></a>
+            <a class="reel-card" data-tone="green" data-tiktok="https://www.tiktok.com/@rogerfilmshn/video/7611635102971448592" href="https://www.tiktok.com/@rogerfilmshn/video/7611635102971448592" target="_blank" rel="noopener" aria-label="Ver proyecto Bounce Padel en TikTok"><img class="preview-image" alt="" aria-hidden="true"><span class="project-meta"><span class="project-badge">Deporte · Dron</span><span class="project-number">07</span></span><span class="preview-state">Cargando vista previa</span><span class="project-bottom"><span class="project-title">Bounce Padel</span><span class="project-subtitle">Onetouch · Tomas aéreas</span></span><span class="play-control" aria-hidden="true">▶</span></a>
+            <a class="reel-card" data-tone="gold" data-tiktok="https://www.tiktok.com/@rogerfilmshn/video/7565979619405352204" href="https://www.tiktok.com/@rogerfilmshn/video/7565979619405352204" target="_blank" rel="noopener" aria-label="Ver proyecto El Salvador en TikTok"><img class="preview-image" alt="" aria-hidden="true"><span class="project-meta"><span class="project-badge">Comercial · Viajes</span><span class="project-number">08</span></span><span class="preview-state">Cargando vista previa</span><span class="project-bottom"><span class="project-title">El Salvador</span><span class="project-subtitle">Producción internacional</span></span><span class="play-control" aria-hidden="true">▶</span></a>
             <a class="reel-card" data-tone="blue" data-tiktok="https://www.tiktok.com/@rogerfilmshn/video/7443623871334632759" href="https://www.tiktok.com/@rogerfilmshn/video/7443623871334632759" target="_blank" rel="noopener" aria-label="Ver proyecto iMotors Maxus D90 en TikTok"><img class="preview-image" alt="" aria-hidden="true"><span class="project-meta"><span class="project-badge">Automotriz</span><span class="project-number">09</span></span><span class="preview-state">Cargando vista previa</span><span class="project-bottom"><span class="project-title">iMotors · Maxus D90</span><span class="project-subtitle">Lanzamiento comercial</span></span><span class="play-control" aria-hidden="true">▶</span></a>
             <a class="reel-card" data-tone="gold" data-tiktok="https://www.tiktok.com/@rogerfilmshn/video/7292629788668218630" href="https://www.tiktok.com/@rogerfilmshn/video/7292629788668218630" target="_blank" rel="noopener" aria-label="Ver proyecto Grupo Flores Toyota en TikTok"><img class="preview-image" alt="" aria-hidden="true"><span class="project-meta"><span class="project-badge">Corporativo</span><span class="project-number">10</span></span><span class="preview-state">Cargando vista previa</span><span class="project-bottom"><span class="project-title">Grupo Flores · Toyota</span><span class="project-subtitle">Celebración 100 años</span></span><span class="play-control" aria-hidden="true">▶</span></a>
             <a class="reel-card" data-tone="violet" data-tiktok="https://www.tiktok.com/@rogerfilmshn/video/7573507521487441163" href="https://www.tiktok.com/@rogerfilmshn/video/7573507521487441163" target="_blank" rel="noopener" aria-label="Ver proyecto Devio Guatemala en TikTok"><img class="preview-image" alt="" aria-hidden="true"><span class="project-meta"><span class="project-badge">Comercial</span><span class="project-number">11</span></span><span class="preview-state">Cargando vista previa</span><span class="project-bottom"><span class="project-title">Devio · Guatemala</span><span class="project-subtitle">Agencia WAY · Campaña</span></span><span class="play-control" aria-hidden="true">▶</span></a>
@@ -544,7 +561,7 @@
       </div>
     </section>
 
-    <section class="section statement" aria-label="Filosofía de Roger Films">
+    <section class="section statement" aria-label="Filosofía de Roger Rivera">
       <div class="page-width statement-grid" data-reveal>
         <p class="statement-quote lens-title">No grabamos momentos.<br><em>Los convertimos</em> en experiencias.</p>
         <p class="statement-copy">La técnica importa, pero la sensación permanece. Por eso cuidamos la luz, el movimiento, el ritmo y cada decisión que hace que una pieza se sienta viva.</p>
@@ -563,7 +580,7 @@
   </main>
 
   <footer class="site-footer">
-    <div class="page-width footer-inner"><span class="footer-signature"><span class="brand-logo" aria-hidden="true"><img src="assets/rogerfilms-isologo.png" alt="" width="2101" height="2100" loading="lazy"></span>ROGERFILMS · Honduras</span><span>© <span id="year"></span> Todos los derechos reservados</span></div>
+    <div class="page-width footer-inner"><span class="footer-signature"><span class="brand-logo" aria-hidden="true"><img src="assets/rogerfilms-isologo.png" alt="" width="2101" height="2100" loading="lazy"></span>ROGER RIVERA · Honduras</span><span>© <span id="year"></span> Todos los derechos reservados</span></div>
   </footer>
 
   <script>
@@ -703,7 +720,14 @@
         track.addEventListener("focusin", event => {
           if (track.dataset.lastPointerType === "touch") return;
           const card = event.target.closest(".reel-card");
-          if (card && track.contains(card)) setActiveCard(card);
+          if (card && track.contains(card)) {
+            setActiveCard(card);
+            const video = card.querySelector(".project-video");
+            if (video) {
+              video.muted = true;
+              video.play().catch(() => {});
+            }
+          }
         });
         track.addEventListener("focusout", event => {
           if (!track.contains(event.relatedTarget)) setActiveCard(null);
@@ -736,6 +760,7 @@
           }
           const card = event.target.closest(".reel-card");
           if (!card || !track.contains(card)) return;
+          if (event.target.closest("video")) return;
           // En móvil el primer toque abre la vista ampliada; el segundo abre el TikTok.
           if (track.dataset.lastPointerType === "touch" && !card.classList.contains("is-active")) {
             event.preventDefault();
