@@ -332,8 +332,8 @@
     .reel-card {
       position: relative;
       display: flex;
-      min-height: 335px;
-      aspect-ratio: 9 / 13;
+      min-height: 0;
+      aspect-ratio: 9 / 16;
       padding: 16px;
       overflow: hidden;
       isolation: isolate;
@@ -385,8 +385,6 @@
       object-fit: cover;
       background: #171817;
     }
-    .reel-card--video { padding-bottom: 112px; }
-    .reel-card--video .project-video { inset: 0 0 108px; width: 100%; height: calc(100% - 108px); }
     .reel-card[data-preview="ready"] .preview-image { opacity: .98; }
     .reel-card:hover, .reel-card:focus-visible { border-color: var(--amber-light); transform: translateY(-7px); box-shadow: 0 25px 42px rgba(0, 0, 0, .44); }
     .reel-card:hover::before, .reel-card:focus-visible::before, .reel-card:hover .preview-image, .reel-card:focus-visible .preview-image { transform: scale(1.075); }
@@ -533,14 +531,7 @@
             </div>
           </div>
           <div class="reel-track" id="row-live" tabindex="0" aria-label="Portafolio de conciertos y eventos. Use las flechas izquierda y derecha para desplazarse.">
-            <article class="reel-card reel-card--video" data-tone="violet" tabindex="0" aria-label="Reproducir el proceso del montaje de la tarima para el concierto de Bad Bunny">
-              <video class="project-video" controls loop preload="metadata" poster="assets/thumbs/montaje-tarima-poster.jpg">
-                <source src="assets/montaje-tarima-bad-bunny.mp4" type="video/mp4">
-                Tu navegador no puede reproducir este video.
-              </video>
-              <span class="project-meta"><span class="project-badge">Proceso de montaje</span><span class="project-number">01</span></span>
-              <span class="project-bottom"><span class="project-title">Montaje de tarima</span><span class="project-subtitle">Bad Bunny · Proceso de producción</span></span>
-            </article>
+            <a class="reel-card" data-tone="violet" data-tiktok="https://www.tiktok.com/@rogerfilmshn/video/7170256430224706822" data-fallback="assets/thumbs/bad-bunny-tiktok.jpg" href="https://www.tiktok.com/@rogerfilmshn/video/7170256430224706822" target="_blank" rel="noopener" aria-label="Ver proyecto Montaje de tarima de Bad Bunny en TikTok"><img class="preview-image" alt="" aria-hidden="true"><span class="project-meta"><span class="project-badge">Proceso de montaje</span><span class="project-number">01</span></span><span class="project-bottom"><span class="project-title">Montaje de tarima</span><span class="project-subtitle">Bad Bunny · Proceso de producción</span></span><span class="play-control" aria-hidden="true">▶</span></a>
             <a class="reel-card" data-tone="red" data-tiktok="https://www.tiktok.com/@rogerfilmshn/video/7166134308611132678" href="https://www.tiktok.com/@rogerfilmshn/video/7166134308611132678" target="_blank" rel="noopener" aria-label="Ver proyecto Ricardo Arjona en TikTok"><img class="preview-image" alt="" aria-hidden="true"><span class="project-meta"><span class="project-badge">Concierto</span><span class="project-number">02</span></span><span class="project-bottom"><span class="project-title">Ricardo Arjona</span><span class="project-subtitle">Estadio Morazán · Cobertura</span></span><span class="play-control" aria-hidden="true">▶</span></a>
             <a class="reel-card" data-tone="gold" data-tiktok="https://www.tiktok.com/@rogerfilmshn/video/7509260986260458757" href="https://www.tiktok.com/@rogerfilmshn/video/7509260986260458757" target="_blank" rel="noopener" aria-label="Ver proyecto Jowell y Randy en TikTok"><img class="preview-image" alt="" aria-hidden="true"><span class="project-meta"><span class="project-badge">Concierto</span><span class="project-number">03</span></span><span class="project-bottom"><span class="project-title">Jowell &amp; Randy</span><span class="project-subtitle">Show en vivo · Honduras</span></span><span class="play-control" aria-hidden="true">▶</span></a>
             <a class="reel-card" data-tone="blue" data-tiktok="https://www.tiktok.com/@rogerfilmshn/video/7369108931081538822" href="https://www.tiktok.com/@rogerfilmshn/video/7369108931081538822" target="_blank" rel="noopener" aria-label="Ver proyecto Tito y Nicky Jam en TikTok"><img class="preview-image" alt="" aria-hidden="true"><span class="project-meta"><span class="project-badge">Concierto</span><span class="project-number">04</span></span><span class="project-bottom"><span class="project-title">Tito &amp; Nicky Jam</span><span class="project-subtitle">San Pedro Sula · Evento</span></span><span class="play-control" aria-hidden="true">▶</span></a>
@@ -805,7 +796,21 @@
           });
           card.dataset.preview = "ready";
         } catch (_) {
-          card.dataset.preview = "fallback";
+          const fallback = card.dataset.fallback;
+          if (fallback) {
+            try {
+              await new Promise((resolve, reject) => {
+                image.onload = resolve;
+                image.onerror = reject;
+                image.src = fallback;
+              });
+              card.dataset.preview = "ready";
+            } catch (_) {
+              card.dataset.preview = "fallback";
+            }
+          } else {
+            card.dataset.preview = "fallback";
+          }
         } finally {
           window.clearTimeout(timeout);
         }
