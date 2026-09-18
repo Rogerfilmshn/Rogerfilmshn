@@ -378,7 +378,8 @@
     .reel-track.has-active .reel-card.is-active::before, .reel-track.has-active .reel-card.is-active .preview-image { transform: scale(1.09); }
     .project-meta { display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; width: 100%; }
     .project-badge { max-width: calc(100% - 48px); padding: 6px 8px; border: 1px solid rgba(247, 243, 234, .28); background: rgba(13, 14, 13, .26); backdrop-filter: blur(9px); color: var(--ivory); font-size: .56rem; font-weight: 700; letter-spacing: .11em; line-height: 1.3; text-transform: uppercase; }
-    .project-number { color: var(--amber-light); font-size: .6rem; font-weight: 700; letter-spacing: .13em; }
+    /* El orden editorial ya comunica prioridad; evitamos números que parezcan un ranking. */
+    .project-number { display: none; }
     .project-bottom { align-self: flex-end; width: 100%; }
     .project-title { display: block; font-family: "Space Grotesk", Arial, sans-serif; font-size: clamp(1.15rem, 1.65vw, 1.5rem); font-weight: 600; letter-spacing: -.055em; line-height: .96; }
     .project-subtitle { display: block; max-width: 25ch; margin-top: 8px; color: rgba(247, 243, 234, .75); font-size: .65rem; line-height: 1.45; }
@@ -572,6 +573,46 @@
       const hero = document.querySelector(".hero");
       const heroVisual = document.querySelector(".hero-visual");
       const heroVideo = document.querySelector(".hero-video video");
+
+      // Curaduría editorial: cada primera pantalla abre con los trabajos de mayor peso
+      // y alterna sus paletas para que el carrusel tenga ritmo visual en móvil.
+      const curateTrack = (trackId, preferredTitles) => {
+        const track = document.getElementById(trackId);
+        if (!track) return;
+        const remaining = [...track.querySelectorAll(":scope > .reel-card")];
+        preferredTitles.forEach(title => {
+          const index = remaining.findIndex(card => card.querySelector(".project-title")?.textContent.trim() === title);
+          if (index < 0) return;
+          track.appendChild(remaining[index]);
+          remaining.splice(index, 1);
+        });
+        remaining.forEach(card => track.appendChild(card));
+      };
+
+      curateTrack("row-brands", [
+        "Grupo Flores · Toyota", "iMotors · Maxus D90", "Ocean Blue", "Bounce Padel",
+        "Maxus D90", "Maxus T60", "Vista 526", "Vista 526", "Vista 526", "Vista 526", "Pepe"
+      ]);
+      curateTrack("row-agencies", [
+        "Devio · Guatemala", "El Salvador", "Fuera de juego", "Agencia Devio",
+        "Devio GT Life", "Bip Bip", "Campaña para mascotas", "INVU POS", "Devio Life",
+        "Agencia Devio", "Campaña de fútbol", "Bip Bip × Papa John’s", "Bip Bip × Taco Pollo"
+      ]);
+      curateTrack("row-live", [
+        "Bad Bunny", "Jowell & Randy", "Tito & Nicky Jam", "Daddy Yankee",
+        "Los Temerarios", "Ricardo Arjona", "Experiencia de carrera", "Un mes después"
+      ]);
+
+      const pepeCard = [...document.querySelectorAll(".reel-card")].find(card =>
+        card.querySelector(".project-title")?.textContent.trim() === "Pepe"
+      );
+      if (pepeCard) {
+        const badge = pepeCard.querySelector(".project-badge");
+        const subtitle = pepeCard.querySelector(".project-subtitle");
+        if (badge) badge.textContent = "Colaboración";
+        if (subtitle) subtitle.textContent = "Postproducción · Outro y animación de logo";
+        pepeCard.setAttribute("aria-label", "Reproducir Pepe: colaboración en postproducción, outro y animación de logo");
+      }
 
       // Refuerza el autoplay permitido para video local: sin sonido, inline y en bucle.
       if (heroVideo && !reduceMotion) {
