@@ -1,6 +1,7 @@
-﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" fill="none">
-  <path d="M18 34c0-9.4 7.6-17 17-17h58c9.4 0 17 7.6 17 17v60c0 9.4-7.6 17-17 17H35c-9.4 0-17-7.6-17-17V34Z" stroke="currentColor" stroke-width="8"/>
-  <path d="M35 26 92 102H35V26Z" fill="currentColor" opacity=".14"/>
-  <path d="M44 38c0 0 11 17 24 17 15 0 25-14 25-29v-1M84 90c0 0-11-17-24-17-15 0-25 14-25 29v1" stroke="currentColor" stroke-width="8" stroke-linecap="round"/>
-  <circle cx="64" cy="64" r="14" stroke="currentColor" stroke-width="8"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="475 400 250 310" fill="#c79b58">
+<title>Ojo ROGERFILMS — trazado del isologo</title>
+<path d="M568 410 C630 409 675 432 698 485 C671 438 630 416 568 417 Z"/>
+<path fill-rule="evenodd" d="M525 490 C566 488 591 488 610 502 C625 514 636 535 636 556 C636 583 623 606 604 616 C616 620 634 620 651 620 L701 620 L701 622 L638 622 C610 622 589 615 577 600 C568 588 563 574 563 556 C563 534 572 514 588 503 C571 497 548 492 525 490 Z M599 527 C583 527 570 540 570 557 C570 573 583 587 599 587 C615 587 628 573 628 557 C628 540 615 527 599 527 Z"/>
+<ellipse cx="606.5" cy="543" rx="8" ry="8.5"/>
+<path d="M496 619 C512 658 552 690 622 695 L640 697 C561 697 515 667 496 623 Z"/>
 </svg>
