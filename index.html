@@ -603,6 +603,21 @@
         "Tito & Nicky Jam", "Daddy Yankee", "Los Temerarios", "Ricardo Arjona"
       ]);
 
+      const renamePortfolioRow = (trackId, title) => {
+        const track = document.getElementById(trackId);
+        const row = track?.closest(".portfolio-row");
+        if (!track || !row) return;
+        const heading = row.querySelector(".row-name");
+        if (heading) heading.textContent = title;
+        track.setAttribute("aria-label", title);
+        row.querySelectorAll(".carousel-control").forEach(button => {
+          const direction = button.dataset.move === "-1" ? "Anterior" : "Siguiente";
+          button.setAttribute("aria-label", `${direction}: ${title}`);
+        });
+      };
+      renamePortfolioRow("row-agencies", "Agencias y detrás de cámaras");
+      renamePortfolioRow("row-live", "Conciertos y eventos");
+
       const pepeCard = [...document.querySelectorAll(".reel-card")].find(card =>
         card.querySelector(".project-title")?.textContent.trim() === "Pepe"
       );
