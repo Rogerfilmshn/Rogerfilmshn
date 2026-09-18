@@ -589,14 +589,20 @@
         remaining.forEach(card => track.appendChild(card));
       };
 
+      // Pepe corresponde a una colaboración de postproducción, no a una producción integral.
+      const pepeCard = [...document.querySelectorAll(".reel-card")].find(card =>
+        card.querySelector(".project-title")?.textContent.trim() === "Pepe"
+      );
+      if (pepeCard) document.getElementById("row-agencies")?.appendChild(pepeCard);
+
       curateTrack("row-brands", [
         "iMotors · Maxus D90", "Ocean Blue", "Bounce Padel", "Grupo Flores · Toyota",
-        "Maxus D90", "Maxus T60", "Vista 526", "Vista 526", "Vista 526", "Vista 526", "Pepe"
+        "Maxus D90", "Maxus T60", "Vista 526", "Vista 526", "Vista 526", "Vista 526"
       ]);
       curateTrack("row-agencies", [
         "Fuera de juego", "El Salvador", "Devio · Guatemala", "Bip Bip",
         "Campaña para mascotas", "INVU POS", "Agencia Devio", "Devio GT Life", "Devio Life",
-        "Agencia Devio", "Campaña de fútbol", "Bip Bip × Papa John’s", "Bip Bip × Taco Pollo"
+        "Pepe", "Agencia Devio", "Campaña de fútbol", "Bip Bip × Papa John’s", "Bip Bip × Taco Pollo"
       ]);
       curateTrack("row-live", [
         "Bad Bunny", "Experiencia de carrera", "Un mes después", "Jowell & Randy",
@@ -615,18 +621,36 @@
           button.setAttribute("aria-label", `${direction}: ${title}`);
         });
       };
-      renamePortfolioRow("row-agencies", "Agencias y detrás de cámaras");
+      renamePortfolioRow("row-agencies", "Agencias, colaboraciones y detrás de cámaras");
       renamePortfolioRow("row-live", "Conciertos y eventos");
 
-      const pepeCard = [...document.querySelectorAll(".reel-card")].find(card =>
-        card.querySelector(".project-title")?.textContent.trim() === "Pepe"
-      );
       if (pepeCard) {
         const badge = pepeCard.querySelector(".project-badge");
         const subtitle = pepeCard.querySelector(".project-subtitle");
         if (badge) badge.textContent = "Colaboración";
         if (subtitle) subtitle.textContent = "Postproducción · Outro y animación de logo";
         pepeCard.setAttribute("aria-label", "Reproducir Pepe: colaboración en postproducción, outro y animación de logo");
+      }
+
+      const agencyTrack = document.getElementById("row-agencies");
+      agencyTrack?.querySelectorAll(":scope > .reel-card").forEach(card => {
+        const title = card.querySelector(".project-title")?.textContent.trim();
+        const badge = card.querySelector(".project-badge");
+        if (!badge || title === "Pepe") return;
+        badge.textContent = title === "Devio Life" || title === "Devio GT Life"
+          ? "Detrás de cámaras"
+          : "Colaboración";
+      });
+
+      const maxusAiCard = [...document.querySelectorAll(".reel-card")].find(card =>
+        card.querySelector(".project-title")?.textContent.trim() === "iMotors · Maxus D90"
+      );
+      if (maxusAiCard) {
+        const badge = maxusAiCard.querySelector(".project-badge");
+        const subtitle = maxusAiCard.querySelector(".project-subtitle");
+        if (badge) badge.textContent = "Producción + IA";
+        if (subtitle) subtitle.textContent = "Reemplazo completo de fondo sobre imagen original";
+        maxusAiCard.setAttribute("aria-label", "Ver iMotors Maxus D90: producción con integración de IA y reemplazo completo de fondo");
       }
 
       // Refuerza el autoplay permitido para video local: sin sonido, inline y en bucle.
