@@ -574,8 +574,8 @@
       const heroVisual = document.querySelector(".hero-visual");
       const heroVideo = document.querySelector(".hero-video video");
 
-      // Curaduría editorial: cada primera pantalla abre con los trabajos de mayor peso
-      // y alterna sus paletas para que el carrusel tenga ritmo visual en móvil.
+      // Curaduría editorial: las primeras tres tarjetas priorizan impacto cromático;
+      // desde la cuarta, el orden vuelve a equilibrar peso del proyecto y variedad.
       const curateTrack = (trackId, preferredTitles) => {
         const track = document.getElementById(trackId);
         if (!track) return;
@@ -590,17 +590,17 @@
       };
 
       curateTrack("row-brands", [
-        "Grupo Flores · Toyota", "iMotors · Maxus D90", "Ocean Blue", "Bounce Padel",
+        "iMotors · Maxus D90", "Ocean Blue", "Bounce Padel", "Grupo Flores · Toyota",
         "Maxus D90", "Maxus T60", "Vista 526", "Vista 526", "Vista 526", "Vista 526", "Pepe"
       ]);
       curateTrack("row-agencies", [
-        "Devio · Guatemala", "El Salvador", "Fuera de juego", "Agencia Devio",
-        "Devio GT Life", "Bip Bip", "Campaña para mascotas", "INVU POS", "Devio Life",
+        "Fuera de juego", "El Salvador", "Devio · Guatemala", "Bip Bip",
+        "Campaña para mascotas", "INVU POS", "Agencia Devio", "Devio GT Life", "Devio Life",
         "Agencia Devio", "Campaña de fútbol", "Bip Bip × Papa John’s", "Bip Bip × Taco Pollo"
       ]);
       curateTrack("row-live", [
-        "Bad Bunny", "Jowell & Randy", "Tito & Nicky Jam", "Daddy Yankee",
-        "Los Temerarios", "Ricardo Arjona", "Experiencia de carrera", "Un mes después"
+        "Bad Bunny", "Experiencia de carrera", "Un mes después", "Jowell & Randy",
+        "Tito & Nicky Jam", "Daddy Yankee", "Los Temerarios", "Ricardo Arjona"
       ]);
 
       const pepeCard = [...document.querySelectorAll(".reel-card")].find(card =>
