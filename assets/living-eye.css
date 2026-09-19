@@ -1,0 +1,55 @@
+/* A viewport sibling of the page: hero transforms cannot capture this layer. */
+:root { --eye-safe-top: env(safe-area-inset-top, 0px); }
+.signature-eye {
+  --look-x: 0px;
+  --look-y: 0px;
+  --lid: 0%;
+  position: fixed;
+  z-index: 12;
+  top: 0;
+  right: max(18px, env(safe-area-inset-right));
+  width: clamp(190px, 20vw, 310px);
+  aspect-ratio: 1112 / 687;
+  pointer-events: none;
+  user-select: none;
+  transform: translate3d(0, 120px, 0);
+  transform-origin: top right;
+  opacity: .96;
+  transition: opacity .24s ease;
+}
+.signature-eye__float,
+.signature-eye__lid { position: absolute; inset: 0; }
+.signature-eye__float { filter: drop-shadow(0 8px 12px #0004); }
+.signature-eye__lid { clip-path: inset(var(--lid) 0 round 50%); }
+.signature-eye__base,
+.signature-eye__iris {
+  position: absolute;
+  display: block;
+  pointer-events: none;
+  -webkit-user-drag: none;
+}
+.signature-eye__base { inset: 0; width: 100%; height: 100%; object-fit: contain; }
+.signature-eye__iris {
+  left: 50%; top: 50%; width: 37.77%; height: 61.14%;
+  object-fit: contain;
+  transform: translate(calc(-50% + var(--look-x)), calc(-50% + var(--look-y))) scale(var(--iris-scale, 1));
+  will-change: transform;
+}
+.signature-eye__seam {
+  position: absolute; top: 50%; left: 9%; width: 82%; height: 2px;
+  background: #101010; border-radius: 50%; opacity: var(--seam, 0);
+}
+.signature-eye.is-compact { opacity: .78; }
+.signature-eye.is-obscuring { opacity: .18; }
+.signature-eye.is-suspended,
+body.menu-open .signature-eye { opacity: 0; }
+/* The existing focus cursor remains secondary to the eye. */
+body.has-living-eye .cine-focus { width: 76px; height: 76px; background: none; filter: none; }
+body.has-living-eye .cine-focus svg { opacity: .3; }
+@media (max-width: 760px) {
+  .signature-eye { width: clamp(96px, 26vw, 124px); right: max(14px, env(safe-area-inset-right)); transform: translate3d(0, 86px, 0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .signature-eye { transition: none; }
+  .signature-eye__iris { will-change: auto; }
+}
