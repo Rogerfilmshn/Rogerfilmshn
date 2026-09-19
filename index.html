@@ -208,50 +208,6 @@
       background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.32'/%3E%3C/svg%3E");
       mix-blend-mode: soft-light;
     }
-    .signature-eye {
-      --look-x: 0px;
-      --look-y: 0px;
-      position: absolute;
-      z-index: 2;
-      top: clamp(118px, 17vh, 168px);
-      right: max(5vw, calc((100vw - 1240px) / 2));
-      width: clamp(210px, 24vw, 370px);
-      aspect-ratio: 1112 / 687;
-      pointer-events: none;
-      filter: drop-shadow(0 18px 30px rgba(0, 0, 0, .44));
-      transform-origin: 50% 50%;
-      animation: eye-breathe 5.6s ease-in-out infinite;
-    }
-    .signature-eye__base,
-    .signature-eye__iris {
-      position: absolute;
-      display: block;
-      user-select: none;
-      -webkit-user-drag: none;
-    }
-    .signature-eye__base { inset: 0; width: 100%; height: 100%; object-fit: contain; }
-    .signature-eye__iris {
-      left: 50%;
-      top: 50%;
-      width: 37.77%;
-      height: 61.14%;
-      object-fit: contain;
-      transform: translate(calc(-50% + var(--look-x)), calc(-50% + var(--look-y)));
-      transition: filter .25s ease;
-      will-change: transform;
-    }
-    .signature-eye::after {
-      content: "";
-      position: absolute;
-      inset: -5%;
-      border-radius: 50%;
-      opacity: .18;
-      background: radial-gradient(ellipse, transparent 48%, rgba(237, 171, 75, .2) 68%, transparent 73%);
-      mix-blend-mode: screen;
-    }
-    .signature-eye.is-blinking { animation: eye-blink .22s ease-in-out, eye-breathe 5.6s ease-in-out .24s infinite; }
-    @keyframes eye-breathe { 0%, 100% { transform: rotate(-1deg) scale(1); } 50% { transform: rotate(1deg) scale(1.018); } }
-    @keyframes eye-blink { 0%, 100% { scale: 1 1; } 48%, 54% { scale: 1 .045; } }
     .hero-content {
       width: var(--page);
       min-height: max(680px, 100svh);
@@ -583,12 +539,6 @@
       .hero-visual { background-position: 59% 42%; }
       .hero-title { max-width: 9ch; font-size: clamp(3.9rem, 17.3vw, 6.1rem); }
       .hero-summary { max-width: 35ch; margin-top: 27px; font-size: .88rem; }
-      .signature-eye {
-        top: calc(86px + env(safe-area-inset-top));
-        right: 18px;
-        width: clamp(138px, 38vw, 190px);
-        opacity: .96;
-      }
       .hero-foot span:first-child { display: none; }
       .section-heading--spread, .contact-inner { display: block; }
       .services-grid { grid-template-columns: 1fr; }
@@ -604,13 +554,21 @@
       html { scroll-behavior: auto; }
       *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: .01ms !important; }
       [data-reveal] { opacity: 1; transform: none; }
-      .signature-eye { animation: none; }
-      .signature-eye__iris { transform: translate(-50%, -50%); }
     }
   </style>
 <link rel="stylesheet" href="assets/local-player.css">
+<link rel="stylesheet" href="assets/living-eye.css">
 </head>
 <body>
+  <div class="signature-eye" aria-hidden="true">
+    <div class="signature-eye__float">
+      <div class="signature-eye__lid">
+        <img class="signature-eye__base" src="assets/rogerfilms-eye-base.png" alt="" width="1112" height="687" draggable="false">
+        <img class="signature-eye__iris" src="assets/rogerfilms-eye-iris.png" alt="" width="420" height="420" draggable="false">
+      </div>
+      <span class="signature-eye__seam"></span>
+    </div>
+  </div>
   <div class="camera-intro" aria-hidden="true"><span class="camera-intro-mark">ROGERFILMS</span></div>
   <a class="skip-link" href="#contenido">Ir al contenido</a>
   <header class="site-header">
@@ -635,10 +593,6 @@
       </div>
       <div class="hero-wash" aria-hidden="true"></div>
       <div class="hero-grain" aria-hidden="true"></div>
-      <div class="signature-eye" aria-hidden="true">
-        <img class="signature-eye__base" src="assets/rogerfilms-eye-base.png" alt="" width="1112" height="687">
-        <img class="signature-eye__iris" src="assets/rogerfilms-eye-iris.png" alt="" width="420" height="420">
-      </div>
       <div class="hero-content">
         <p class="eyebrow">Honduras · Producción audiovisual</p>
         <h1 class="hero-title lens-title" id="hero-title">Hacemos que una historia <em>se sienta.</em></h1>
@@ -860,81 +814,6 @@
       const hero = document.querySelector(".hero");
       const heroVisual = document.querySelector(".hero-visual");
       const heroVideo = document.querySelector(".hero-video video");
-      const signatureEye = document.querySelector(".signature-eye");
-
-      // Mirada ROGERFILMS: movimiento con inercia, límites naturales y descanso al centro.
-      if (signatureEye && !reduceMotion) {
-        let targetX = 0;
-        let targetY = 0;
-        let currentX = 0;
-        let currentY = 0;
-        let idleTimer = 0;
-        let eyeVisible = true;
-
-        const clamp = (value, min, max) => Math.min(Math.max(value, min), max);
-        const lookAt = (clientX, clientY, strength = 1) => {
-          const box = signatureEye.getBoundingClientRect();
-          const dx = (clientX - (box.left + box.width / 2)) / (window.innerWidth * .48);
-          const dy = (clientY - (box.top + box.height / 2)) / (window.innerHeight * .48);
-          targetX = clamp(dx, -1, 1) * box.width * .072 * strength;
-          targetY = clamp(dy, -1, 1) * box.height * .09 * strength;
-          window.clearTimeout(idleTimer);
-          idleTimer = window.setTimeout(() => { targetX = 0; targetY = 0; }, 1250);
-        };
-
-        const animateEye = () => {
-          if (eyeVisible) {
-            currentX += (targetX - currentX) * .105;
-            currentY += (targetY - currentY) * .105;
-            signatureEye.style.setProperty("--look-x", `${currentX.toFixed(2)}px`);
-            signatureEye.style.setProperty("--look-y", `${currentY.toFixed(2)}px`);
-          }
-          window.requestAnimationFrame(animateEye);
-        };
-        animateEye();
-
-        const finePointer = window.matchMedia("(any-hover: hover) and (any-pointer: fine)").matches;
-        if (finePointer) {
-          window.addEventListener("pointermove", event => {
-            if (event.pointerType === "mouse") lookAt(event.clientX, event.clientY);
-          }, { passive: true });
-          document.documentElement.addEventListener("mouseleave", () => { targetX = 0; targetY = 0; });
-        } else {
-          window.addEventListener("touchmove", event => {
-            const touch = event.touches[0];
-            if (touch) lookAt(touch.clientX, touch.clientY, .92);
-          }, { passive: true });
-          window.addEventListener("touchend", () => {
-            window.clearTimeout(idleTimer);
-            idleTimer = window.setTimeout(() => { targetX = 0; targetY = 0; }, 700);
-          }, { passive: true });
-        }
-
-        let lastScrollY = window.scrollY;
-        window.addEventListener("scroll", () => {
-          if (finePointer) return;
-          const delta = clamp(window.scrollY - lastScrollY, -45, 45);
-          lastScrollY = window.scrollY;
-          targetY = clamp(delta * .42, -14, 14);
-          window.clearTimeout(idleTimer);
-          idleTimer = window.setTimeout(() => { targetX = 0; targetY = 0; }, 420);
-        }, { passive: true });
-
-        const visibilityObserver = new IntersectionObserver(entries => {
-          eyeVisible = entries[0]?.isIntersecting ?? true;
-          if (!eyeVisible) { targetX = 0; targetY = 0; }
-        }, { threshold: 0 });
-        visibilityObserver.observe(signatureEye);
-
-        const blink = () => {
-          if (eyeVisible && !document.hidden) {
-            signatureEye.classList.add("is-blinking");
-            window.setTimeout(() => signatureEye.classList.remove("is-blinking"), 260);
-          }
-          window.setTimeout(blink, 3600 + Math.random() * 4200);
-        };
-        window.setTimeout(blink, 2200 + Math.random() * 1800);
-      }
 
       // Curaduría editorial: las primeras tres tarjetas priorizan impacto cromático;
       // desde la cuarta, el orden vuelve a equilibrar peso del proyecto y variedad.
@@ -1504,5 +1383,6 @@
 
 </script>
 <script src="assets/local-player.js"></script>
+<script src="assets/living-eye.js"></script>
 </body>
 </html>
