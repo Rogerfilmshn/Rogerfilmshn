@@ -408,65 +408,85 @@
     @keyframes mark-reveal { 42% { opacity: 0; } 60%, 84% { opacity: 1; transform: scale(1); } 100% { opacity: 0; } }
     @keyframes intro-out { 0%, 86% { visibility: visible; background: #050606; } 100% { visibility: hidden; background: transparent; } }
 
-    /* Reto del director */
-    .director-game { background: #111210; color: var(--ivory); }
-    .game-layout { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(280px, .65fr); gap: clamp(28px, 6vw, 76px); align-items: center; }
-    .game-copy .section-copy { color: var(--muted); }
-    .game-stage { position: relative; min-height: 420px; overflow: hidden; border: 1px solid rgba(247,243,234,.18); background: radial-gradient(circle at 50% 18%, #4f275f, #161222 46%, #080909 82%); box-shadow: 0 28px 70px rgba(0,0,0,.34); }
-    .game-canvas { display: block; width: 100%; aspect-ratio: 16 / 9; min-height: 300px; touch-action: none; background: #090a0c; }
-    .game-panel { padding: 22px; border-top: 1px solid rgba(247,243,234,.15); background: rgba(8,9,9,.9); }
-    .game-fields { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-    .game-field { width: 100%; min-height: 44px; padding: 10px 12px; border: 1px solid rgba(247,243,234,.22); border-radius: 0; outline: none; background: #151615; color: var(--ivory); font: inherit; }
-    .game-field:focus { border-color: var(--amber-light); }
-    .game-field--code { grid-column: 1 / -1; letter-spacing: .12em; text-transform: uppercase; }
-    .game-actions { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 12px; }
-    .game-button { min-height: 42px; padding: 10px 14px; border: 1px solid var(--amber-light); background: transparent; color: var(--amber-light); cursor: pointer; font-size: .64rem; font-weight: 700; letter-spacing: .11em; text-transform: uppercase; }
-    .game-button:hover, .game-button:focus-visible, .game-button.is-primary { background: var(--amber-light); color: var(--ink); }
-    .game-message { min-height: 1.5em; margin: 11px 0 0; color: var(--muted); font-size: .72rem; }
-    .game-hud { display: none; align-items: center; justify-content: space-between; gap: 12px; padding: 11px 14px; border-bottom: 1px solid rgba(247,243,234,.15); color: var(--amber-light); font-size: .68rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
-    .game-stage.is-running .game-hud { display: flex; }
-    .game-result { display: none; padding: 25px; text-align: center; }
-    .game-result.is-visible { display: block; }
-    .game-score { display: block; margin: 4px 0 12px; color: var(--amber-light); font-family: "Space Grotesk", Arial, sans-serif; font-size: clamp(3rem, 7vw, 5.6rem); font-weight: 600; line-height: 1; }
     .social-links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
     .social-link { display: inline-grid; width: 42px; height: 42px; place-items: center; border: 1px solid rgba(247,243,234,.27); color: var(--amber-light); transition: background .2s ease, color .2s ease, border-color .2s ease, transform .2s ease; }
     .social-link:hover, .social-link:focus-visible { border-color: var(--amber-light); background: var(--amber-light); color: var(--ink); transform: translateY(-2px); }
     .social-link svg { width: 19px; height: 19px; fill: currentColor; }
     .footer-social-links { justify-content: flex-end; margin-top: 0; padding-bottom: 22px; }
 
-    /* Solicitud privada de pago */
-    .payment-request { background: var(--paper-deep); color: var(--ink); }
-    .payment-request .eyebrow { color: #916c37; }
-    .payment-grid { display: grid; grid-template-columns: minmax(0, .8fr) minmax(460px, 1.2fr); gap: clamp(34px, 8vw, 100px); align-items: start; }
-    .payment-copy .section-copy { color: var(--dark-muted); }
-    .payment-steps { margin: 30px 0 0; padding: 0; list-style: none; counter-reset: payment-step; border-top: 1px solid var(--line-light); }
-    .payment-steps li { counter-increment: payment-step; display: grid; grid-template-columns: 34px 1fr; gap: 12px; padding: 15px 0; border-bottom: 1px solid var(--line-light); color: var(--dark-muted); font-size: .82rem; }
-    .payment-steps li::before { content: counter(payment-step, decimal-leading-zero); color: #916c37; font-weight: 700; }
-    .payment-form { padding: clamp(22px, 4vw, 38px); border: 1px solid var(--line-light); background: rgba(247,243,234,.72); box-shadow: 0 22px 55px rgba(26,22,16,.08); }
-    .payment-form-title { margin: 0 0 7px; font-family: "Space Grotesk", Arial, sans-serif; font-size: 1.35rem; letter-spacing: -.04em; }
-    .payment-form-copy { margin: 0 0 22px; color: var(--dark-muted); font-size: .78rem; line-height: 1.6; }
-    .payment-fields { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-    .payment-field-wrap { display: grid; gap: 6px; }
-    .payment-field-wrap--wide { grid-column: 1 / -1; }
-    .payment-label { color: #635f57; font-size: .63rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
-    .payment-field { width: 100%; min-height: 46px; padding: 11px 12px; border: 1px solid rgba(17,18,17,.2); border-radius: 0; outline: none; background: #fffdf8; color: var(--ink); font: inherit; }
-    .payment-field:focus { border-color: #9a743d; box-shadow: 0 0 0 2px rgba(154,116,61,.12); }
-    .payment-consent { display: flex; align-items: flex-start; gap: 9px; margin: 17px 0; color: var(--dark-muted); font-size: .7rem; line-height: 1.5; }
-    .payment-consent input { margin-top: 3px; accent-color: #9a743d; }
-    .payment-submit { width: 100%; border: 0; cursor: pointer; }
-    .payment-note { display: flex; gap: 9px; margin: 15px 0 0; color: var(--dark-muted); font-size: .67rem; line-height: 1.55; }
-    .payment-note::before { content: "✓"; flex: 0 0 auto; color: #7a5c31; font-weight: 700; }
-    .payment-status { min-height: 1.45em; margin: 10px 0 0; color: #7a5c31; font-size: .72rem; }
-    @media (max-width: 760px) {
-      .game-layout { grid-template-columns: 1fr; }
-      .game-stage { min-height: 0; }
-      .game-canvas { min-height: 220px; }
-      .game-fields { grid-template-columns: 1fr; }
-      .game-field--code { grid-column: auto; }
-      .payment-grid { grid-template-columns: 1fr; }
-      .payment-fields { grid-template-columns: 1fr; }
-      .payment-field-wrap--wide { grid-column: auto; }
+    /* Cotizador guiado */
+    .quote { background: var(--ink-soft); color: var(--ivory); border-top: 1px solid var(--line-dark); }
+    .quote .eyebrow { color: var(--amber-light); }
+    .quote .section-copy { color: var(--muted); }
+    .quote-head { max-width: 640px; margin-bottom: clamp(30px, 5vw, 56px); }
+    .quote-layout { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(300px, .7fr); gap: clamp(24px, 5vw, 64px); align-items: start; }
+    .quote-form { min-width: 0; padding: clamp(20px, 3.4vw, 36px); border: 1px solid var(--line-dark); background: rgba(8, 9, 9, .42); }
+    .quote-progress { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 24px; color: var(--muted); font-size: .66rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; white-space: nowrap; }
+    .quote-bars { display: flex; flex: 1; gap: 5px; }
+    .quote-bars span { flex: 1; height: 3px; background: var(--line-dark); transition: background .3s ease; }
+    .quote-bars span.is-done { background: var(--amber); }
+    .quote-step { min-width: 0; margin: 0; padding: 0; border: 0; }
+    .quote-step[hidden] { display: none; }
+    .quote-legend { padding: 0; margin: 0 0 8px; font-family: "Space Grotesk", Arial, sans-serif; font-size: clamp(1.5rem, 3vw, 2.1rem); font-weight: 500; letter-spacing: -.045em; line-height: 1.05; outline: none; }
+    .quote-hint { margin: 0 0 20px; color: var(--muted); font-size: .82rem; line-height: 1.6; }
+    .quote-options { display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 10px; }
+    .quote-option { position: relative; display: block; cursor: pointer; }
+    .quote-option input { position: absolute; inset: 0; width: 100%; height: 100%; margin: 0; opacity: 0; cursor: pointer; }
+    .quote-option-body { display: flex; align-items: center; gap: 12px; min-height: 54px; padding: 12px 14px; border: 1px solid rgba(247, 243, 234, .22); font-size: .84rem; font-weight: 600; line-height: 1.3; transition: border-color .2s ease, background .2s ease; }
+    .quote-option-body::before { content: ""; flex: 0 0 auto; width: 16px; height: 16px; border: 1px solid rgba(247, 243, 234, .4); transition: background .2s ease, border-color .2s ease; }
+    .quote-option--radio .quote-option-body::before { border-radius: 50%; }
+    .quote-option:hover .quote-option-body { border-color: var(--amber-light); }
+    .quote-option input:checked + .quote-option-body { border-color: var(--amber-light); background: rgba(199, 155, 88, .14); }
+    .quote-option input:checked + .quote-option-body::before { border-color: var(--amber-light); background: var(--amber-light); box-shadow: inset 0 0 0 3px #17130d; }
+    .quote-option input:focus-visible + .quote-option-body { outline: 2px solid var(--amber-light); outline-offset: 2px; }
+    .quote-group { min-width: 0; margin: 0; padding: 0; border: 0; }
+    .quote-group + .quote-group { margin-top: 26px; }
+    .quote-group-title { padding: 0; margin: 0 0 10px; color: var(--amber-light); font-size: .68rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
+    .quote-fields { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .quote-field-wrap { display: grid; gap: 6px; }
+    .quote-field-wrap--wide { grid-column: 1 / -1; }
+    .quote-label { color: var(--muted); font-size: .66rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
+    .quote-label small { font-size: inherit; letter-spacing: inherit; text-transform: none; opacity: .8; }
+    .quote-field { width: 100%; min-height: 46px; padding: 11px 12px; border: 1px solid rgba(247, 243, 234, .22); border-radius: 0; outline: none; background: rgba(8, 9, 9, .7); color: var(--ivory); color-scheme: dark; font: inherit; font-size: .9rem; }
+    textarea.quote-field { min-height: 116px; resize: vertical; }
+    .quote-field:focus { border-color: var(--amber-light); box-shadow: 0 0 0 2px rgba(224, 187, 128, .16); }
+    .quote-check { display: flex; align-items: flex-start; gap: 10px; margin-top: 16px; font-size: .84rem; line-height: 1.5; cursor: pointer; }
+    .quote-check input { margin-top: 3px; accent-color: var(--amber); }
+    .quote-error { min-height: 1.4em; margin: 16px 0 0; color: #f0b27a; font-size: .8rem; }
+    .quote-nav { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-top: 8px; }
+    .quote-nav .button { cursor: pointer; font-family: inherit; }
+    .quote-nav .button[hidden] { display: none; }
+    .quote-nav .button-primary { margin-left: auto; }
+    .quote-status { min-height: 1.4em; margin: 12px 0 0; color: var(--amber-light); font-size: .78rem; }
+
+    .quote-panel { position: sticky; top: 24px; padding: clamp(20px, 3vw, 30px); border: 1px solid var(--amber); background: linear-gradient(180deg, rgba(199, 155, 88, .12), rgba(8, 9, 9, .2)), #101110; }
+    .quote-panel-label { margin: 0; color: var(--amber-light); font-size: .68rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; }
+    .quote-range { margin: 12px 0 0; font-family: "Space Grotesk", Arial, sans-serif; font-size: clamp(1.9rem, 3.4vw, 2.7rem); font-weight: 600; letter-spacing: -.05em; line-height: 1.08; }
+    .quote-range.is-empty { color: var(--muted); font-size: 1.1rem; font-weight: 500; letter-spacing: -.02em; line-height: 1.35; }
+    .quote-range.is-bump { animation: quote-bump .45s ease; }
+    @keyframes quote-bump { 40% { transform: translateY(-3px); color: var(--amber-light); } }
+    .quote-disclaimer { margin: 16px 0 0; padding-left: 12px; border-left: 2px solid var(--amber); color: rgba(247, 243, 234, .86); font-size: .78rem; line-height: 1.65; }
+    .quote-disclaimer strong { color: var(--ivory); }
+    .quote-summary { display: grid; gap: 9px; margin: 18px 0 0; padding: 16px 0 0; border-top: 1px solid var(--line-dark); list-style: none; color: var(--muted); font-size: .78rem; }
+    .quote-summary:empty { display: none; }
+    .quote-summary li { display: flex; justify-content: space-between; gap: 14px; }
+    .quote-summary strong { color: var(--ivory); font-weight: 600; text-align: right; }
+    @media (max-width: 900px) {
+      .quote-layout { grid-template-columns: 1fr; }
+      .quote-panel { order: -1; top: 8px; z-index: 6; padding: 14px 16px; }
+      .quote-range { margin-top: 6px; font-size: clamp(1.5rem, 7vw, 2rem); }
+      .quote-range.is-empty { font-size: .95rem; }
+      .quote-disclaimer { margin-top: 10px; font-size: .7rem; line-height: 1.5; }
+      .quote-summary { display: none; }
     }
+    @media (max-width: 560px) {
+      .quote-fields { grid-template-columns: 1fr; }
+      .quote-field-wrap--wide { grid-column: auto; }
+      .quote-options { grid-template-columns: 1fr 1fr; }
+      .quote-option-body { padding: 11px 10px; font-size: .78rem; gap: 9px; }
+      .quote-nav .button { flex: 1 1 auto; min-width: 0; padding-inline: 14px; }
+    }
+
     @media (prefers-reduced-motion: reduce) { .camera-intro { display: none !important; } }
 
     /* Cierre */
@@ -527,6 +547,7 @@
       <div class="nav-links" id="nav-links">
         <a href="#servicios">Servicios</a>
         <a href="#portafolio">Portafolio</a>
+        <a href="#cotizar">Cotizar</a>
         <a href="#contacto">Contacto</a>
       </div>
     </nav>
@@ -627,42 +648,6 @@
 <a class="reel-card" data-tone="red" data-tiktok="https://www.tiktok.com/@rogerfilmshn/video/7368723832120659206" href="https://www.tiktok.com/@rogerfilmshn/video/7368723832120659206" target="_blank" rel="noopener" aria-label="Ver proyecto Los Temerarios en TikTok"><img class="preview-image" alt="" aria-hidden="true"><span class="project-meta"><span class="project-badge">Concierto</span><span class="project-number">05</span></span><span class="preview-state">Cargando vista previa</span><span class="project-bottom"><span class="project-title">Los Temerarios</span><span class="project-subtitle">Gira de despedida</span></span><span class="play-control" aria-hidden="true">▶</span></a>
 <a class="reel-card" data-tone="violet" data-tiktok="https://www.tiktok.com/@rogerfilmshn/video/7164945745072688389" href="https://www.tiktok.com/@rogerfilmshn/video/7164945745072688389" target="_blank" rel="noopener" aria-label="Ver proyecto Daddy Yankee en TikTok"><img class="preview-image" alt="" aria-hidden="true"><span class="project-meta"><span class="project-badge">Concierto</span><span class="project-number">06</span></span><span class="preview-state">Cargando vista previa</span><span class="project-bottom"><span class="project-title">Daddy Yankee</span><span class="project-subtitle">Tegucigalpa · La Última Vuelta</span></span><span class="play-control" aria-hidden="true">▶</span></a></div></div></div></div></section>
 
-    <section class="section director-game" id="reto" aria-labelledby="game-title">
-      <div class="page-width game-layout">
-        <div class="game-copy" data-reveal>
-          <p class="eyebrow">Experiencia para clientes</p>
-          <h2 class="section-title lens-title" id="game-title">Captura el show.</h2>
-          <p class="section-copy">Sigue al artista, mantén el encuadre y captura el momento decisivo. El reto se desbloquea para clientes confirmados de ROGERFILMS.</p>
-          <p class="section-copy">Con 90 puntos obtienes tu reconocimiento digital. Una toma perfecta desbloquea la edición especial.</p>
-        </div>
-        <div class="game-stage" id="game-stage" data-reveal>
-          <div class="game-hud"><span id="game-round">Ronda 1/3</span><span id="game-time">10.0 s</span><span id="game-live-score">0 pts</span></div>
-          <canvas class="game-canvas" id="director-canvas" width="960" height="540" aria-label="Juego Captura el show"></canvas>
-          <div class="game-panel" id="game-lock">
-            <div class="game-fields">
-              <input class="game-field" id="game-client" autocomplete="name" placeholder="Nombre del cliente" aria-label="Nombre del cliente">
-              <input class="game-field" id="game-project" placeholder="Nombre del proyecto" aria-label="Nombre del proyecto">
-              <input class="game-field game-field--code" id="game-code" autocomplete="off" placeholder="Código de acceso" aria-label="Código de acceso">
-            </div>
-            <div class="game-actions">
-              <button class="game-button is-primary" id="game-touch" type="button">Jugar con el dedo</button>
-              <button class="game-button" id="game-motion" type="button">Usar movimiento</button>
-            </div>
-            <p class="game-message" id="game-message">Código exclusivo para clientes con producción confirmada.</p>
-          </div>
-          <div class="game-result" id="game-result" aria-live="polite">
-            <span class="game-score" id="game-final-score">0</span>
-            <h3 id="game-result-title">Resultado</h3>
-            <p class="game-message" id="game-result-copy"></p>
-            <div class="game-actions" id="game-reward-actions">
-              <button class="game-button" type="button" data-certificate="story">Descargar historia</button>
-              <button class="game-button" type="button" data-certificate="square">Descargar imagen</button>
-              <a class="game-button is-primary" id="game-whatsapp" href="#" target="_blank" rel="noopener">Validar por WhatsApp</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
 
 <section class="section statement" aria-label="Filosofía de Roger Films">
       <div class="page-width statement-grid" data-reveal>
@@ -671,38 +656,104 @@
       </div>
     </section>
 
-    <section class="section payment-request" id="pago" aria-labelledby="payment-title">
-      <div class="page-width payment-grid">
-        <div class="payment-copy" data-reveal>
-          <p class="eyebrow">Reserva confirmada</p>
-          <h2 class="section-title lens-title" id="payment-title">Solicita tus instrucciones de pago.</h2>
-          <p class="section-copy">Completa los datos exactamente como aparecen en tu cotización. Roger revisará la solicitud por WhatsApp antes de compartir la cuenta correspondiente.</p>
-          <ol class="payment-steps">
-            <li>Completa los datos del cliente y del proyecto.</li>
-            <li>Indica el nombre de la persona o empresa que realizará el depósito.</li>
-            <li>Envía la solicitud por WhatsApp para autorización.</li>
-            <li>Recibe las instrucciones y envía el comprobante en la misma conversación.</li>
-          </ol>
+    <section class="section quote" id="cotizar" aria-labelledby="quote-title">
+      <div class="page-width">
+        <div class="quote-head" data-reveal>
+          <p class="eyebrow">Cotizador</p>
+          <h2 class="section-title lens-title" id="quote-title">Arma tu cotización.</h2>
+          <p class="section-copy">Cuéntanos qué necesitas y ve un estimado mientras lo armas. Al final se abre WhatsApp con tu resumen y te respondemos con el precio final.</p>
         </div>
-        <form class="payment-form" id="payment-form" data-reveal>
-          <h3 class="payment-form-title">Datos para autorizar el pago</h3>
-          <p class="payment-form-copy">Las cuentas bancarias no están publicadas en la página. Se comparten únicamente después de validar esta solicitud.</p>
-          <div class="payment-fields">
-            <label class="payment-field-wrap"><span class="payment-label">Nombre completo</span><input class="payment-field" name="client" autocomplete="name" required></label>
-            <label class="payment-field-wrap"><span class="payment-label">Empresa <small>(opcional)</small></span><input class="payment-field" name="company" autocomplete="organization"></label>
-            <label class="payment-field-wrap"><span class="payment-label">Teléfono</span><input class="payment-field" name="phone" type="tel" inputmode="tel" autocomplete="tel" required></label>
-            <label class="payment-field-wrap"><span class="payment-label">Correo</span><input class="payment-field" name="email" type="email" autocomplete="email" required></label>
-            <label class="payment-field-wrap"><span class="payment-label">Cotización o proyecto</span><input class="payment-field" name="quote" required></label>
-            <label class="payment-field-wrap"><span class="payment-label">Monto acordado</span><input class="payment-field" name="amount" inputmode="decimal" placeholder="Ej. L 15,000" required></label>
-            <label class="payment-field-wrap"><span class="payment-label">Banco preferido</span><select class="payment-field" name="bank" required><option value="">Seleccionar</option><option>Ficohsa</option><option>BAC Honduras</option><option>El que Roger indique</option></select></label>
-            <label class="payment-field-wrap"><span class="payment-label">Tipo de pago</span><select class="payment-field" name="paymentType" required><option value="">Seleccionar</option><option>Anticipo de reserva</option><option>Pago parcial</option><option>Pago final</option></select></label>
-            <label class="payment-field-wrap payment-field-wrap--wide"><span class="payment-label">Nombre desde el que se realizará el depósito</span><input class="payment-field" name="depositor" required></label>
-          </div>
-          <label class="payment-consent"><input type="checkbox" name="confirmation" required><span>Confirmo que estos datos corresponden a una cotización previamente acordada con ROGERFILMS.</span></label>
-          <button class="button button-primary payment-submit" type="submit">Solicitar autorización por WhatsApp</button>
-          <p class="payment-note">Nunca compartas contraseñas, PIN, códigos de seguridad ni datos completos de tarjetas. ROGERFILMS únicamente solicitará el comprobante de la transferencia.</p>
-          <p class="payment-status" id="payment-status" aria-live="polite"></p>
-        </form>
+        <div class="quote-layout">
+          <form class="quote-form" id="quote-form" novalidate>
+            <div class="quote-progress">
+              <span id="quote-step-label">Paso 1 de 5</span>
+              <div class="quote-bars" aria-hidden="true"><span class="is-done"></span><span></span><span></span><span></span><span></span></div>
+            </div>
+
+            <fieldset class="quote-step" data-step="1">
+              <legend class="quote-legend" tabindex="-1">¿Qué tipo de proyecto es?</legend>
+              <p class="quote-hint">Elige el que más se parezca. Si no encaja, marca “Otro”.</p>
+              <div class="quote-options">
+              <label class="quote-option quote-option--radio"><input type="radio" name="tipo" value="concierto"><span class="quote-option-body">Concierto o evento</span></label>
+              <label class="quote-option quote-option--radio"><input type="radio" name="tipo" value="comercial"><span class="quote-option-body">Comercial o marca</span></label>
+              <label class="quote-option quote-option--radio"><input type="radio" name="tipo" value="automotriz"><span class="quote-option-body">Automotriz</span></label>
+              <label class="quote-option quote-option--radio"><input type="radio" name="tipo" value="corporativo"><span class="quote-option-body">Corporativo</span></label>
+              <label class="quote-option quote-option--radio"><input type="radio" name="tipo" value="drone"><span class="quote-option-body">Drone o deporte</span></label>
+              <label class="quote-option quote-option--radio"><input type="radio" name="tipo" value="otro"><span class="quote-option-body">Otro</span></label>
+              </div>
+            </fieldset>
+
+            <fieldset class="quote-step" data-step="2" hidden>
+              <legend class="quote-legend" tabindex="-1">¿Qué necesitas?</legend>
+              <p class="quote-hint">Puedes elegir varias. Cada opción se suma al estimado.</p>
+              <div class="quote-options">
+              <label class="quote-option"><input type="checkbox" name="servicios" value="direccion"><span class="quote-option-body">Dirección y producción</span></label>
+              <label class="quote-option"><input type="checkbox" name="servicios" value="filmacion"><span class="quote-option-body">Filmación</span></label>
+              <label class="quote-option"><input type="checkbox" name="servicios" value="drone"><span class="quote-option-body">Drone</span></label>
+              <label class="quote-option"><input type="checkbox" name="servicios" value="edicion"><span class="quote-option-body">Edición y postproducción</span></label>
+              <label class="quote-option"><input type="checkbox" name="servicios" value="color"><span class="quote-option-body">Corrección de color</span></label>
+              <label class="quote-option"><input type="checkbox" name="servicios" value="audio"><span class="quote-option-body">Audio y música</span></label>
+              <label class="quote-option"><input type="checkbox" name="servicios" value="vertical"><span class="quote-option-body">Versiones verticales para redes</span></label>
+              </div>
+            </fieldset>
+
+            <fieldset class="quote-step" data-step="3" hidden>
+              <legend class="quote-legend" tabindex="-1">¿Qué tan grande es?</legend>
+              <p class="quote-hint">Un cálculo aproximado nos basta. Lo afinamos juntos.</p>
+              <fieldset class="quote-group">
+                <legend class="quote-group-title">Tiempo de cobertura</legend>
+                <div class="quote-options">
+              <label class="quote-option quote-option--radio"><input type="radio" name="cobertura" value="medioDia"><span class="quote-option-body">Medio día</span></label>
+              <label class="quote-option quote-option--radio"><input type="radio" name="cobertura" value="diaCompleto"><span class="quote-option-body">Día completo</span></label>
+              <label class="quote-option quote-option--radio"><input type="radio" name="cobertura" value="variosDias"><span class="quote-option-body">Varios días</span></label>
+                </div>
+              </fieldset>
+              <fieldset class="quote-group">
+                <legend class="quote-group-title">Piezas finales</legend>
+                <div class="quote-options">
+              <label class="quote-option quote-option--radio"><input type="radio" name="piezas" value="una"><span class="quote-option-body">1 pieza</span></label>
+              <label class="quote-option quote-option--radio"><input type="radio" name="piezas" value="dosATres"><span class="quote-option-body">2 a 3 piezas</span></label>
+              <label class="quote-option quote-option--radio"><input type="radio" name="piezas" value="cuatroOMas"><span class="quote-option-body">4 o más</span></label>
+              <label class="quote-option quote-option--radio"><input type="radio" name="piezas" value="noSe"><span class="quote-option-body">No lo sé aún</span></label>
+                </div>
+              </fieldset>
+            </fieldset>
+
+            <fieldset class="quote-step" data-step="4" hidden>
+              <legend class="quote-legend" tabindex="-1">¿Cuándo y dónde?</legend>
+              <p class="quote-hint">Los tiempos cortos pueden cambiar el precio.</p>
+              <div class="quote-fields">
+                <label class="quote-field-wrap"><span class="quote-label">Fecha aproximada <small>(opcional)</small></span><input class="quote-field" type="date" name="fecha"></label>
+                <label class="quote-field-wrap"><span class="quote-label">Ciudad <small>(opcional)</small></span><input class="quote-field" type="text" name="ciudad" autocomplete="address-level2" placeholder="Ej. San Pedro Sula"></label>
+              </div>
+              <label class="quote-check"><input type="checkbox" name="urgente"><span>Lo necesito en menos de 2 semanas.</span></label>
+            </fieldset>
+
+            <fieldset class="quote-step" data-step="5" hidden>
+              <legend class="quote-legend" tabindex="-1">Último paso.</legend>
+              <p class="quote-hint">Dinos cómo te llamas y cualquier detalle que ayude a entender la idea.</p>
+              <div class="quote-fields">
+                <label class="quote-field-wrap quote-field-wrap--wide"><span class="quote-label">Nombre</span><input class="quote-field" type="text" name="nombre" autocomplete="name" required></label>
+                <label class="quote-field-wrap quote-field-wrap--wide"><span class="quote-label">Detalles del proyecto <small>(opcional)</small></span><textarea class="quote-field" name="detalles" rows="4" placeholder="Artista, marca, ubicación, referencias, lo que tengas en mente."></textarea></label>
+              </div>
+            </fieldset>
+
+            <p class="quote-error" id="quote-error" role="alert"></p>
+            <div class="quote-nav">
+              <button class="button button-secondary" type="button" id="quote-back" hidden>Atrás</button>
+              <button class="button button-primary" type="button" id="quote-next">Siguiente</button>
+              <button class="button button-primary" type="submit" id="quote-send" hidden>Enviar por WhatsApp</button>
+            </div>
+            <p class="quote-status" id="quote-status" aria-live="polite"></p>
+          </form>
+
+          <aside class="quote-panel" aria-label="Estimado orientativo">
+            <p class="quote-panel-label">Estimado orientativo</p>
+            <p class="quote-range is-empty" id="quote-range" aria-live="polite">Elige un tipo de proyecto para ver tu estimado.</p>
+            <p class="quote-disclaimer"><strong>No es el precio final.</strong> Es una idea de rango que se ajusta mientras eliges. El precio final lo confirmamos en tu cotización, según lo que realmente necesite tu proyecto.</p>
+            <ul class="quote-summary" id="quote-summary" aria-label="Resumen de lo que elegiste"></ul>
+          </aside>
+        </div>
       </div>
     </section>
 
@@ -711,7 +762,7 @@
         <h2 class="contact-title lens-title" id="contact-title">Hablemos de lo que sigue.</h2>
         <div>
           <p class="contact-copy">Cuéntanos qué quieres hacer y construyamos una producción a la altura de tu historia.</p>
-          <div class="hero-actions"><a class="button button-primary" href="https://wa.me/50499360085" target="_blank" rel="noopener">Iniciar conversación</a><a class="button button-secondary" href="#pago">Solicitar pago</a></div>
+          <div class="hero-actions"><a class="button button-primary" href="https://wa.me/50499360085" target="_blank" rel="noopener">Iniciar conversación</a><a class="button button-secondary" href="#cotizar">Cotiza tu proyecto</a></div>
           <div class="social-links" aria-label="Redes sociales de Roger Films">
             <a class="social-link" href="https://www.tiktok.com/@rogerfilmshn?_r=1&amp;_t=ZS-99qezw6BmoT" target="_blank" rel="noopener" aria-label="TikTok de Roger Films"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.6 5.82A4.9 4.9 0 0 1 13.75 3h-2.8v12.35a2.62 2.62 0 1 1-2.25-2.6V9.9a5.45 5.45 0 1 0 5.05 5.43V9.06a7.7 7.7 0 0 0 4.5 1.44V7.72a4.94 4.94 0 0 1-1.65-1.9Z"/></svg></a>
             <a class="social-link" href="https://www.facebook.com/share/19Zj6pckKd/" target="_blank" rel="noopener" aria-label="Facebook de Roger Films"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 22v-9h3l.45-3H13.5V8.08c0-.87.24-1.46 1.52-1.46h1.63V3.94a22 22 0 0 0-2.38-.12c-2.35 0-3.96 1.43-3.96 4.07V10H7.65v3h2.66v9h3.19Z"/></svg></a>
@@ -1091,197 +1142,214 @@
     footer.appendChild(footerSocials);
   }
 
-  const canvas = document.getElementById('director-canvas');
-  const stage = document.getElementById('game-stage');
-  if (!canvas || !stage) return;
-  const ctx = canvas.getContext('2d');
-  const lock = document.getElementById('game-lock');
-  const result = document.getElementById('game-result');
-  const message = document.getElementById('game-message');
-  const clientInput = document.getElementById('game-client');
-  const projectInput = document.getElementById('game-project');
-  const codeInput = document.getElementById('game-code');
-  const roundLabel = document.getElementById('game-round');
-  const timeLabel = document.getElementById('game-time');
-  const liveScore = document.getElementById('game-live-score');
-  const finalScore = document.getElementById('game-final-score');
-  const resultTitle = document.getElementById('game-result-title');
-  const resultCopy = document.getElementById('game-result-copy');
-  const rewardActions = document.getElementById('game-reward-actions');
-  const whatsapp = document.getElementById('game-whatsapp');
-  const ACCESS_CODE = 'ROGERFILMS';
-  const W = canvas.width, H = canvas.height;
-  let mode = 'touch', running = false, played = false, round = 1, roundStart = 0;
-  let scoreSum = 0, scoreFrames = 0, roundScores = [], animationFrame = 0;
-  let target = { x: W * .5, y: H * .45 }, reticle = { x: W * .5, y: H * .45 };
-
-  const drawStage = (time = 0) => {
-    const gradient = ctx.createLinearGradient(0, 0, 0, H);
-    gradient.addColorStop(0, '#281633'); gradient.addColorStop(.48, '#111626'); gradient.addColorStop(1, '#060707');
-    ctx.fillStyle = gradient; ctx.fillRect(0, 0, W, H);
-    const colors = ['#b15378', '#4c81ad', '#d09b54'];
-    for (let i = 0; i < 3; i++) {
-      ctx.save(); ctx.globalAlpha = .2; ctx.fillStyle = colors[i];
-      ctx.beginPath(); ctx.moveTo(W * (.18 + i * .32), 0);
-      ctx.lineTo(W * (.02 + i * .26) + Math.sin(time * .001 + i) * 70, H * .82);
-      ctx.lineTo(W * (.35 + i * .25) + Math.sin(time * .001 + i) * 70, H * .82); ctx.closePath(); ctx.fill(); ctx.restore();
-    }
-    ctx.fillStyle = '#090a0a';
-    for (let x = -10; x < W + 20; x += 34) {
-      const bob = Math.sin(x * .08 + time * .004) * 7;
-      ctx.beginPath(); ctx.arc(x, H - 55 + bob, 19, 0, Math.PI * 2); ctx.fill();
-      ctx.fillRect(x - 14, H - 45 + bob, 28, 55);
-    }
-  };
-
-  const drawArtist = () => {
-    ctx.save(); ctx.translate(target.x, target.y);
-    ctx.shadowColor = '#e0bb80'; ctx.shadowBlur = 24; ctx.fillStyle = '#f1d29d';
-    ctx.beginPath(); ctx.arc(0, -48, 23, 0, Math.PI * 2); ctx.fill();
-    ctx.fillStyle = '#d8ad69'; ctx.beginPath(); ctx.roundRect(-28, -24, 56, 96, 20); ctx.fill();
-    ctx.strokeStyle = '#f1d29d'; ctx.lineWidth = 12; ctx.lineCap = 'round';
-    ctx.beginPath(); ctx.moveTo(-19, 2); ctx.lineTo(-56, 34); ctx.moveTo(19, 2); ctx.lineTo(55, -28); ctx.stroke();
-    ctx.restore();
-  };
-
-  const drawReticle = () => {
-    ctx.save(); ctx.translate(reticle.x, reticle.y); ctx.strokeStyle = '#f7f3ea'; ctx.lineWidth = 3; ctx.shadowColor = '#000'; ctx.shadowBlur = 8;
-    const s = 66, c = 20; ctx.beginPath();
-    ctx.moveTo(-s, -s + c); ctx.lineTo(-s, -s); ctx.lineTo(-s + c, -s);
-    ctx.moveTo(s - c, -s); ctx.lineTo(s, -s); ctx.lineTo(s, -s + c);
-    ctx.moveTo(s, s - c); ctx.lineTo(s, s); ctx.lineTo(s - c, s);
-    ctx.moveTo(-s + c, s); ctx.lineTo(-s, s); ctx.lineTo(-s, s - c); ctx.stroke();
-    ctx.fillStyle = '#df4b44'; ctx.beginPath(); ctx.arc(-s + 9, -s + 9, 5, 0, Math.PI * 2); ctx.fill(); ctx.restore();
-  };
-
-  const drawIdle = () => {
-    drawStage(0); target = { x: W * .5, y: H * .48 }; drawArtist();
-    ctx.fillStyle = 'rgba(7,8,8,.42)'; ctx.fillRect(0, 0, W, H);
-    ctx.fillStyle = '#f7f3ea'; ctx.textAlign = 'center'; ctx.font = '600 45px Space Grotesk, sans-serif'; ctx.fillText('CAPTURA EL SHOW', W / 2, 105);
-    ctx.fillStyle = '#e0bb80'; ctx.font = '700 18px Manrope, sans-serif'; ctx.fillText('RETO EXCLUSIVO PARA CLIENTES', W / 2, 142);
-  };
-
-  const updateTarget = (elapsed) => {
-    const speed = .00125 + round * .00032;
-    target.x = W * .5 + Math.sin(elapsed * speed * 2.1 + round) * W * (.2 + round * .035);
-    target.y = H * .48 + Math.sin(elapsed * speed * 3.05) * H * (.06 + round * .018);
-  };
-
-  const frame = now => {
-    if (!running) return;
-    const elapsed = now - roundStart;
-    updateTarget(elapsed); drawStage(now); drawArtist(); drawReticle();
-    const distance = Math.hypot(target.x - reticle.x, target.y - reticle.y);
-    const instant = Math.max(0, 100 - distance / 2.25);
-    scoreSum += instant; scoreFrames++;
-    liveScore.textContent = `${Math.round(scoreSum / scoreFrames)} pts`;
-    timeLabel.textContent = `${Math.max(0, 10 - elapsed / 1000).toFixed(1)} s`;
-    if (elapsed >= 10000) {
-      roundScores.push(scoreSum / Math.max(1, scoreFrames));
-      if (round < 3) {
-        round++; roundLabel.textContent = `Ronda ${round}/3`; roundStart = now; scoreSum = 0; scoreFrames = 0;
-      } else { finishGame(); return; }
-    }
-    animationFrame = requestAnimationFrame(frame);
-  };
-
-  const finishGame = () => {
-    running = false; played = true; stage.classList.remove('is-running');
-    const score = Math.max(0, Math.min(100, Math.round(roundScores.reduce((a, b) => a + b, 0) / roundScores.length)));
-    finalScore.textContent = score;
-    const won = score >= 90;
-    resultTitle.textContent = score === 100 ? 'Toma perfecta' : won ? 'Reconocimiento desbloqueado' : 'Casi lo logras';
-    resultCopy.textContent = won ? 'Tu reconocimiento ROGERFILMS está listo. La validación final se realiza por WhatsApp.' : 'El reconocimiento se desbloquea desde 90 puntos. Tu puntuación quedará registrada para esta partida.';
-    rewardActions.style.display = won ? 'flex' : 'none';
-    const text = `Hola Roger Films. Completé Captura el show. Cliente: ${clientInput.value.trim()}. Proyecto: ${projectInput.value.trim()}. Puntuación: ${score}/100. Código: ${codeInput.value.trim().toUpperCase()}.`;
-    whatsapp.href = `https://wa.me/50499360085?text=${encodeURIComponent(text)}`;
-    result.classList.add('is-visible');
-    drawStage(performance.now()); drawArtist(); drawReticle();
-    result.dataset.score = String(score);
-  };
-
-  const begin = selectedMode => {
-    if (played) { message.textContent = 'Esta partida ya fue utilizada. La validación se realiza por WhatsApp.'; return; }
-    if (!clientInput.value.trim() || !projectInput.value.trim()) { message.textContent = 'Escribe el nombre del cliente y del proyecto.'; return; }
-    if (codeInput.value.trim().toUpperCase() !== ACCESS_CODE) { message.textContent = 'Código no válido. Solicítalo al confirmar tu producción.'; return; }
-    mode = selectedMode; lock.hidden = true; result.classList.remove('is-visible'); stage.classList.add('is-running');
-    running = true; round = 1; roundScores = []; scoreSum = 0; scoreFrames = 0; roundStart = performance.now();
-    roundLabel.textContent = 'Ronda 1/3'; animationFrame = requestAnimationFrame(frame);
-  };
-
-  document.getElementById('game-touch').addEventListener('click', () => begin('touch'));
-  document.getElementById('game-motion').addEventListener('click', async () => {
-    try {
-      if (typeof DeviceOrientationEvent !== 'undefined' && typeof DeviceOrientationEvent.requestPermission === 'function') {
-        const permission = await DeviceOrientationEvent.requestPermission();
-        if (permission !== 'granted') throw new Error('Permiso no concedido');
-      }
-      window.addEventListener('deviceorientation', event => {
-        if (!running || mode !== 'motion') return;
-        reticle.x = Math.max(70, Math.min(W - 70, W / 2 + (event.gamma || 0) * 13));
-        reticle.y = Math.max(70, Math.min(H - 70, H / 2 + ((event.beta || 45) - 45) * 8));
-      });
-      begin('motion');
-    } catch (_) { message.textContent = 'No se pudo activar el movimiento. Puedes jugar con el dedo.'; }
-  });
-
-  const moveReticle = event => {
-    if (!running || mode !== 'touch') return;
-    const box = canvas.getBoundingClientRect();
-    reticle.x = (event.clientX - box.left) * W / box.width;
-    reticle.y = (event.clientY - box.top) * H / box.height;
-  };
-  canvas.addEventListener('pointerdown', event => { canvas.setPointerCapture?.(event.pointerId); moveReticle(event); });
-  canvas.addEventListener('pointermove', moveReticle);
-
-  const downloadCertificate = format => {
-    const story = format === 'story'; const out = document.createElement('canvas');
-    out.width = 1080; out.height = story ? 1920 : 1080; const c = out.getContext('2d');
-    const g = c.createLinearGradient(0, 0, out.width, out.height); g.addColorStop(0, '#0b0c0c'); g.addColorStop(.55, '#201528'); g.addColorStop(1, '#090a0a');
-    c.fillStyle = g; c.fillRect(0, 0, out.width, out.height);
-    c.strokeStyle = '#c79b58'; c.lineWidth = 8; c.strokeRect(46, 46, out.width - 92, out.height - 92);
-    c.textAlign = 'center'; c.fillStyle = '#e0bb80'; c.font = '700 34px Manrope, sans-serif'; c.fillText('ROGERFILMS', out.width / 2, story ? 250 : 160);
-    c.fillStyle = '#f7f3ea'; c.font = '600 76px Space Grotesk, sans-serif'; c.fillText(Number(result.dataset.score) === 100 ? 'TOMA PERFECTA' : 'DIRECTOR’S CHALLENGE', out.width / 2, story ? 500 : 350);
-    c.fillStyle = '#e0bb80'; c.font = '600 210px Space Grotesk, sans-serif'; c.fillText(`${result.dataset.score}`, out.width / 2, story ? 900 : 650);
-    c.fillStyle = '#f7f3ea'; c.font = '600 42px Manrope, sans-serif'; c.fillText(clientInput.value.trim(), out.width / 2, story ? 1120 : 790);
-    c.fillStyle = '#aaa69d'; c.font = '400 30px Manrope, sans-serif'; c.fillText(projectInput.value.trim(), out.width / 2, story ? 1180 : 845);
-    c.fillStyle = '#c79b58'; c.font = '700 24px Manrope, sans-serif'; c.fillText('CLIENTE ROGERFILMS · PUNTUACIÓN VERIFICABLE', out.width / 2, out.height - 150);
-    const link = document.createElement('a'); link.download = `rogerfilms-${format}-${clientInput.value.trim().replace(/\s+/g, '-').toLowerCase()}.png`; link.href = out.toDataURL('image/png'); link.click();
-  };
-  document.querySelectorAll('[data-certificate]').forEach(button => button.addEventListener('click', () => downloadCertificate(button.dataset.certificate)));
-  drawIdle();
 })();
 </script>
 <script>
 (() => {
-  const form = document.getElementById('payment-form');
-  const status = document.getElementById('payment-status');
-  if (!form || !status) return;
+  const form = document.getElementById('quote-form');
+  if (!form) return;
+
+  /* ------------------------------------------------------------------
+     PRECIOS DE REFERENCIA (en lempiras). Cada valor es [mínimo, máximo].
+     Edita solo estos números para ajustar el estimado que ve el cliente.
+     El estimado es orientativo: el precio final siempre lo defines tú.
+     ------------------------------------------------------------------ */
+  const PRECIOS = {
+    moneda: 'L',
+    base: {
+      concierto:   [4000, 9000],
+      comercial:   [8000, 18000],
+      automotriz:  [8000, 16000],
+      corporativo: [6500, 14000],
+      drone:       [4000, 9000],
+      otro:        [4000, 9000]
+    },
+    extras: {
+      direccion: [4000, 11000],
+      filmacion: [4000, 9000],
+      drone:     [3000, 7000],
+      edicion:   [2500, 8000],
+      color:     [1500, 4500],
+      audio:     [1500, 4500],
+      vertical:  [1500, 3500]
+    },
+    cobertura: {
+      medioDia:    [2500, 6000],
+      diaCompleto: [6500, 14000],
+      variosDias:  [15000, 40000]
+    },
+    piezas: {
+      una:        [0, 2500],
+      dosATres:   [2500, 8000],
+      cuatroOMas: [9000, 20000]
+    },
+    urgente: 1.25 // multiplicador si lo necesita en menos de 2 semanas
+  };
+
+  const WHATSAPP = '50499360085';
+
+  const $ = id => document.getElementById(id);
+  const steps = [...form.querySelectorAll('.quote-step')];
+  const bars = [...form.querySelectorAll('.quote-bars span')];
+  const stepLabel = $('quote-step-label');
+  const rangeEl = $('quote-range');
+  const summaryEl = $('quote-summary');
+  const errorEl = $('quote-error');
+  const statusEl = $('quote-status');
+  const backBtn = $('quote-back');
+  const nextBtn = $('quote-next');
+  const sendBtn = $('quote-send');
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const last = steps.length - 1;
+  let current = 0;
+  let lastText = '';
+
+  const dateField = form.elements.fecha;
+  if (dateField) {
+    const t = new Date();
+    dateField.min = `${t.getFullYear()}-${String(t.getMonth() + 1).padStart(2, '0')}-${String(t.getDate()).padStart(2, '0')}`;
+  }
+
+  const isRange = v => Array.isArray(v) && v.length === 2 && v.every(Number.isFinite);
+  const money = n => `${PRECIOS.moneda} ${String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g, ',')}`;
+  const round500 = n => Math.round(n / 500) * 500;
+  const clean = v => String(v || '').replace(/\s+/g, ' ').trim();
+  const labelOf = input => clean(input && input.closest('.quote-option')?.querySelector('.quote-option-body')?.textContent);
+
+  const read = () => {
+    const checked = name => [...form.querySelectorAll(`input[name="${name}"]:checked`)];
+    return {
+      tipo: checked('tipo')[0] || null,
+      servicios: checked('servicios'),
+      cobertura: checked('cobertura')[0] || null,
+      piezas: checked('piezas')[0] || null,
+      urgente: form.elements.urgente.checked,
+      fecha: form.elements.fecha.value,
+      ciudad: clean(form.elements.ciudad.value),
+      nombre: clean(form.elements.nombre.value),
+      detalles: clean(form.elements.detalles.value)
+    };
+  };
+
+  const estimate = d => {
+    if (!d.tipo) return null;
+    const parts = [PRECIOS.base[d.tipo.value]];
+    d.servicios.forEach(s => parts.push(PRECIOS.extras[s.value]));
+    if (d.cobertura) parts.push(PRECIOS.cobertura[d.cobertura.value]);
+    if (d.piezas && d.piezas.value !== 'noSe') parts.push(PRECIOS.piezas[d.piezas.value]);
+    if (!parts.every(isRange)) return { pending: true };
+    let min = parts.reduce((a, p) => a + p[0], 0);
+    let max = parts.reduce((a, p) => a + p[1], 0);
+    if (d.urgente && Number.isFinite(PRECIOS.urgente)) { min *= PRECIOS.urgente; max *= PRECIOS.urgente; }
+    return { min: round500(min), max: round500(max) };
+  };
+
+  const row = (key, value) => {
+    const li = document.createElement('li');
+    const k = document.createElement('span');
+    const v = document.createElement('strong');
+    k.textContent = key;
+    v.textContent = value;
+    li.append(k, v);
+    return li;
+  };
+
+  const render = () => {
+    const d = read();
+    const est = estimate(d);
+    let text;
+    let empty = false;
+    if (!est) { text = 'Elige un tipo de proyecto para ver tu estimado.'; empty = true; }
+    else if (est.pending) { text = 'Estimado disponible pronto'; empty = true; }
+    else text = `${money(est.min)} – ${money(est.max)}`;
+
+    rangeEl.textContent = text;
+    rangeEl.classList.toggle('is-empty', empty);
+    if (!empty && text !== lastText && !reduceMotion) {
+      rangeEl.classList.remove('is-bump');
+      void rangeEl.offsetWidth;
+      rangeEl.classList.add('is-bump');
+    }
+    lastText = text;
+
+    const rows = [];
+    if (d.tipo) rows.push(row('Proyecto', labelOf(d.tipo)));
+    if (d.servicios.length) rows.push(row('Servicios', d.servicios.length === 1 ? labelOf(d.servicios[0]) : `${d.servicios.length} seleccionados`));
+    if (d.cobertura) rows.push(row('Cobertura', labelOf(d.cobertura)));
+    if (d.piezas) rows.push(row('Piezas', labelOf(d.piezas)));
+    if (d.urgente) rows.push(row('Urgente', 'Sí'));
+    summaryEl.replaceChildren(...rows);
+    return { d, est };
+  };
+
+  const showStep = (n, move = true) => {
+    current = Math.max(0, Math.min(last, n));
+    steps.forEach((s, i) => { s.hidden = i !== current; });
+    bars.forEach((b, i) => b.classList.toggle('is-done', i <= current));
+    stepLabel.textContent = `Paso ${current + 1} de ${steps.length}`;
+    backBtn.hidden = current === 0;
+    nextBtn.hidden = current === last;
+    sendBtn.hidden = current !== last;
+    errorEl.textContent = '';
+    statusEl.textContent = '';
+    if (!move) return;
+    steps[current].querySelector('.quote-legend')?.focus({ preventScroll: true });
+    const top = form.getBoundingClientRect().top;
+    const offset = window.innerWidth <= 900 ? 150 : 24;
+    if (top < offset) window.scrollBy({ top: top - offset, behavior: reduceMotion ? 'auto' : 'smooth' });
+  };
+
+  const validate = () => {
+    const d = read();
+    if (current === 0 && !d.tipo) return 'Elige un tipo de proyecto para continuar.';
+    if (current === last && !d.nombre) return 'Escribe tu nombre para poder responderte.';
+    return '';
+  };
+
+  const goNext = () => {
+    const msg = validate();
+    if (msg) { errorEl.textContent = msg; return; }
+    showStep(current + 1);
+  };
+
+  const send = () => {
+    const msg = validate();
+    if (msg) {
+      errorEl.textContent = msg;
+      form.elements.nombre.focus();
+      return;
+    }
+    const { d, est } = render();
+    const fecha = d.fecha ? d.fecha.split('-').reverse().join('/') : '';
+    const lines = ['Hola, RogerFilmsHN. Quiero cotizar un proyecto.', ''];
+    const add = (k, v) => { if (v) lines.push(`${k}: ${v}`); };
+    add('Tipo de proyecto', labelOf(d.tipo));
+    add('Servicios', d.servicios.map(labelOf).join(', '));
+    add('Cobertura', labelOf(d.cobertura));
+    add('Piezas finales', d.piezas ? (d.piezas.value === 'noSe' ? 'Aún por definir' : labelOf(d.piezas)) : '');
+    add('Fecha aproximada', fecha);
+    add('Ciudad', d.ciudad);
+    add('Urgente', d.urgente ? 'Sí' : 'No');
+    add('Detalles', d.detalles);
+    if (est && !est.pending) add('Estimado que vi en la web', `${money(est.min)} - ${money(est.max)} (orientativo; el precio final se define en la cotización)`);
+    lines.push('', `Nombre: ${d.nombre}`, 'Gracias.');
+    window.open(`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(lines.join('\n'))}`, '_blank', 'noopener');
+    statusEl.textContent = 'Abriendo WhatsApp con tu resumen listo para editar.';
+  };
+
+  form.addEventListener('change', () => { errorEl.textContent = ''; render(); });
+  nextBtn.addEventListener('click', goNext);
+  backBtn.addEventListener('click', () => showStep(current - 1));
   form.addEventListener('submit', event => {
     event.preventDefault();
-    if (!form.reportValidity()) return;
-    const data = new FormData(form);
-    const clean = value => String(value || '').trim().replace(/[\r\n]+/g, ' ');
-    const message = [
-      'Hola Roger Films. Solicito autorización para recibir las instrucciones de pago.',
-      '',
-      `Cliente: ${clean(data.get('client'))}`,
-      `Empresa: ${clean(data.get('company')) || 'No aplica'}`,
-      `Teléfono: ${clean(data.get('phone'))}`,
-      `Correo: ${clean(data.get('email'))}`,
-      `Cotización / proyecto: ${clean(data.get('quote'))}`,
-      `Monto acordado: ${clean(data.get('amount'))}`,
-      `Banco preferido: ${clean(data.get('bank'))}`,
-      `Tipo de pago: ${clean(data.get('paymentType'))}`,
-      `El depósito se realizará a nombre de: ${clean(data.get('depositor'))}`,
-      '',
-      'Confirmo que estos datos corresponden a una cotización previamente acordada con ROGERFILMS.'
-    ].join('\n');
-    status.textContent = 'Abriendo WhatsApp para que Roger autorice las instrucciones de pago…';
-    const url = `https://wa.me/50499360085?text=${encodeURIComponent(message)}`;
-    window.open(url, '_blank', 'noopener');
+    if (current < last) goNext();
+    else send();
   });
+
+  render();
+  showStep(0, false);
 })();
+
 </script>
 <script src="assets/local-player.js"></script>
 </body>
