@@ -1,0 +1,18 @@
+.rf-social { background: #080909; color: var(--ivory); }
+.rf-social__inner { border-bottom: 1px solid var(--line-dark); padding: 20px 0 12px; }
+.rf-social__row { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 12px 28px; }
+.rf-social__metric, .rf-social__button { display: inline-flex; align-items: center; gap: 9px; font-family: "Space Grotesk", Arial, sans-serif; font-size: .72rem; letter-spacing: .1em; font-weight: 500; }
+.rf-social__metric span:last-child { color: var(--muted); font-size: .6rem; }
+.rf-social__button { min-height: 44px; padding: 8px 12px; background: transparent; border: 1px solid transparent; border-radius: 4px; color: var(--ivory); cursor: pointer; transition: color .2s, border-color .2s; }
+.rf-social__button:hover, .rf-social__button[aria-pressed="true"] { color: var(--amber-light); }
+.rf-social__button:focus-visible { outline: 2px solid var(--amber-light); outline-offset: 3px; }
+.rf-social__button:disabled { cursor: wait; opacity: .5; }
+.rf-social__button svg { width: 19px; height: 19px; fill: transparent; stroke: currentColor; stroke-width: 1.5; transition: fill .2s, transform .2s; }
+.rf-social__button[aria-pressed="true"] svg { fill: currentColor; }
+.rf-social__button.rf-social__pulse svg { animation: rf-social-pulse .3s ease-out; }
+.rf-social__status { margin: 4px 0 0; min-height: 18px; text-align: center; color: var(--muted); font-size: .7rem; }
+.rf-social [hidden] { display: none !important; }
+.rf-social__copy { display: block; width: min(100%, 460px); margin: 8px auto; background: var(--ink); color: var(--ivory); border: 1px solid var(--amber); padding: 10px; font: inherit; }
+@keyframes rf-social-pulse { 50% { transform: scale(1.15); } }
+@media (max-width: 400px) { .rf-social__row { gap: 6px 10px; } .rf-social__button { padding-inline: 8px; } }
+@media (prefers-reduced-motion: reduce) { .rf-social__button, .rf-social__button svg { transition: none; animation: none !important; } }

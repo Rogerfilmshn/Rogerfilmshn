@@ -1,0 +1,18 @@
+name = "rogerfilms-social"
+main = "worker.js"
+compatibility_date = "2026-09-01"
+workers_dev = true
+
+[vars]
+ALLOWED_ORIGIN = "https://rogerfilmshn.github.io"
+
+[[durable_objects.bindings]]
+name = "SOCIAL"
+class_name = "SocialCounter"
+
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["SocialCounter"]
+
+[observability]
+enabled = false
